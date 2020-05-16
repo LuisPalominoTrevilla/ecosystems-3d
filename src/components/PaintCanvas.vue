@@ -4,6 +4,7 @@
 
 <script>
 import * as Three from 'three';
+import ecosystems from '../ecosystems';
 
 export default {
   name: 'PaintCanvas',
@@ -11,7 +12,7 @@ export default {
   data() {
     return {
       camera: null,
-      scene: null,
+      ecosystems: [],
       renderer: null,
       mesh: null
     };
@@ -34,13 +35,7 @@ export default {
       );
       this.camera.position.z = 1;
 
-      this.scene = new Three.Scene();
-
-      let geometry = new Three.BoxGeometry(0.2, 0.2, 0.2);
-      let material = new Three.MeshNormalMaterial();
-
-      this.mesh = new Three.Mesh(geometry, material);
-      this.scene.add(this.mesh);
+      this.ecosystems.push(ecosystems.testEcosystem);
 
       this.renderer = new Three.WebGLRenderer({ antialias: true });
       this.renderer.setSize(container.clientWidth, container.clientHeight);
@@ -48,9 +43,10 @@ export default {
     },
     animate() {
       requestAnimationFrame(this.animate);
-      this.mesh.rotation.x += 0.01;
-      this.mesh.rotation.y += 0.02;
-      this.renderer.render(this.scene, this.camera);
+      this.ecosystems.forEach(ecosystem => {
+        ecosystem.animate();
+        this.renderer.render(ecosystem, this.camera);
+      });
     }
   }
 };
