@@ -3,7 +3,8 @@
 </template>
 
 <script>
-import * as Three from 'three';
+import { PerspectiveCamera, WebGLRenderer } from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import ecosystems from '../ecosystems';
 
 export default {
@@ -27,18 +28,20 @@ export default {
     init() {
       const container = this.$refs.container;
 
-      this.camera = new Three.PerspectiveCamera(
+      this.camera = new PerspectiveCamera(
         70,
         container.clientWidth / container.clientHeight,
         0.01,
         10
       );
-      this.camera.position.z = 1;
+      this.camera.position.z = 3;
 
       this.ecosystems.push(ecosystems.testEcosystem);
 
-      this.renderer = new Three.WebGLRenderer({ antialias: true });
+      this.renderer = new WebGLRenderer({ antialias: true });
       this.renderer.setSize(container.clientWidth, container.clientHeight);
+
+      new OrbitControls(this.camera, this.renderer.domElement);
       container.appendChild(this.renderer.domElement);
     },
     animate() {
