@@ -32,11 +32,12 @@ export default {
         70,
         container.clientWidth / container.clientHeight,
         0.01,
-        10
+        100
       );
-      this.camera.position.z = 3;
+      this.camera.position.z = 7;
+      this.camera.position.y = 4;
 
-      this.ecosystems.push(ecosystems.testEcosystem);
+      this.ecosystems.push(ecosystems.coralReefEcosystem);
 
       this.renderer = new WebGLRenderer({ antialias: true });
       this.renderer.setSize(container.clientWidth, container.clientHeight);
