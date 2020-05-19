@@ -37,6 +37,26 @@ class CoralReefEcosystem extends Scene {
     this.bg.position.z = -15;
     this.bg.position.y = 5;
 
+    this.bgl = new Mesh(
+      new PlaneGeometry(30, 30),
+      new MeshBasicMaterial({
+        map: textureLoader.load('assets/backgrounds/reef-bg.jpg')
+      })
+    );
+    this.bgl.position.x = -15;
+    this.bgl.rotation.y = Math.PI / 2;
+    this.bgl.position.y = 5;
+
+    this.bgr = new Mesh(
+      new PlaneGeometry(30, 30),
+      new MeshBasicMaterial({
+        map: textureLoader.load('assets/backgrounds/reef-bg.jpg')
+      })
+    );
+    this.bgr.position.x = 15;
+    this.bgr.rotation.y = -Math.PI / 2;
+    this.bgr.position.y = 5;
+
     const light = new AmbientLight();
     const dirLight = new DirectionalLight();
 
@@ -45,12 +65,14 @@ class CoralReefEcosystem extends Scene {
     this.add(dirLight);
     this.add(this.floor);
     this.add(this.bg);
+    this.add(this.bgl);
+    this.add(this.bgr);
 
     loader.load(
       'assets/manta-ray/scene.gltf',
       gltf => {
         this.ray = gltf.scene;
-        this.ray.scale.set(0.1, 0.1, 0.1);
+        this.ray.scale.set(0.2, 0.2, 0.2);
         this.ray.position.set(0, 3, 0);
         this.add(this.ray);
       },
@@ -64,8 +86,8 @@ class CoralReefEcosystem extends Scene {
       'assets/jellyfish/scene.gltf',
       gltf => {
         this.jellyfish = gltf.scene;
-        this.jellyfish.scale.set(0.2, 0.2, 0.2);
-        this.jellyfish.position.set(0, 0, 2);
+        this.jellyfish.scale.set(0.6, 0.6, 0.6);
+        this.jellyfish.position.set(-4, 2, 2);
         this.add(this.jellyfish);
       },
       undefined,
@@ -91,6 +113,20 @@ class CoralReefEcosystem extends Scene {
           coral.position.set(x, y, z);
           this.add(coral);
         });
+      },
+      undefined,
+      function(error) {
+        console.error(error);
+      }
+    );
+
+    loader.load(
+      'assets/white-shark/scene.gltf',
+      gltf => {
+        const shark = gltf.scene;
+        shark.scale.set(0.6, 0.6, 0.6);
+        shark.position.set(3, 4, 1);
+        this.add(shark);
       },
       undefined,
       function(error) {
