@@ -1,0 +1,478 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 7806,
+      "max": [
+        5.7183723449707031,
+        6.2900705337524414,
+        6.5631594657897949
+      ],
+      "min": [
+        -5.7438039779663086,
+        -0.02817000076174736,
+        -6.2894611358642578
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 93672,
+      "componentType": 5126,
+      "count": 7806,
+      "max": [
+        0.9996306300163269,
+        0.99998223781585693,
+        0.99963968992233276
+      ],
+      "min": [
+        -0.9997747540473938,
+        -0.99998688697814941,
+        -0.99994051456451416
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 7806,
+      "max": [
+        1,
+        0.99979919195175171,
+        0.99994552135467529,
+        1
+      ],
+      "min": [
+        -0.99993455410003662,
+        -0.99867522716522217,
+        -0.99970775842666626,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 7806,
+      "max": [
+        0.88434845209121704,
+        0.99322187900543213
+      ],
+      "min": [
+        0.0070682503283023834,
+        0.0067781209945678711
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 44304,
+      "max": [
+        7805
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 187344,
+      "componentType": 5126,
+      "count": 522,
+      "max": [
+        0.29067105054855347,
+        1.4759757518768311,
+        0.29067105054855347
+      ],
+      "min": [
+        -0.29067105054855347,
+        -0.30554205179214478,
+        -0.29067105054855347
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 193608,
+      "componentType": 5126,
+      "count": 522,
+      "max": [
+        0.96592581272125244,
+        1,
+        0.96592581272125244
+      ],
+      "min": [
+        -0.96592581272125244,
+        -1,
+        -0.96592581272125244
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 62448,
+      "componentType": 5126,
+      "count": 522,
+      "max": [
+        0.9855840802192688,
+        0.99471110105514526
+      ],
+      "min": [
+        0.005322508979588747,
+        0.008729100227355957
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 177216,
+      "componentType": 5125,
+      "count": 2160,
+      "max": [
+        521
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "chung_the_artist (https://sketchfab.com/chung_the_artist)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/sea-turtle-c12909c5b64943d6a11a9f2e3dded93e",
+      "title": "Sea Turtle"
+    },
+    "generator": "Sketchfab-8.47.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 185856,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 66624,
+      "byteOffset": 185856,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 199872,
+      "byteOffset": 252480,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 124896,
+      "byteOffset": 452352,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 577248,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/turtle_baseColor.png"
+    },
+    {
+      "uri": "textures/turtle_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/turtle_normal.png"
+    },
+    {
+      "uri": "textures/eyes_baseColor.png"
+    },
+    {
+      "uri": "textures/eyes_metallicRoughness.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "turtle",
+      "normalTexture": {
+        "index": 2,
+        "scale": 1,
+        "texCoord": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 1,
+        "metallicRoughnessTexture": {
+          "index": 1,
+          "texCoord": 0
+        },
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "eyes",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 3,
+          "texCoord": 0
+        },
+        "metallicFactor": 1,
+        "metallicRoughnessTexture": {
+          "index": 4,
+          "texCoord": 0
+        },
+        "roughnessFactor": 1
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "turtle_turtle_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "eyes_eyes_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TEXCOORD_0": 7
+          },
+          "indices": 8,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.073560305447141872,
+        -0.041230380218863605,
+        0,
+        0,
+        0.041230380218863605,
+        0.073560305447141872,
+        0,
+        0,
+        0,
+        0,
+        0.08432711660861969,
+        0,
+        0.065290085971355438,
+        -0.023684894666075706,
+        0,
+        1
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "375242fbc4764679921d14b994d0000e.fbx"
+    },
+    {
+      "children": [
+        4,
+        6,
+        8
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        -0.63031344421207436,
+        -0.25007150921884141,
+        -0.73496204141610155,
+        0,
+        -0.16279588776052706,
+        0.96822737013421123,
+        -0.18982428361843212,
+        0,
+        0.75908000959962996,
+        -9.7144514654701197e-17,
+        -0.65099734179658975,
+        0,
+        15.130575180053711,
+        8.7364511489868164,
+        20.994892120361328,
+        1
+      ],
+      "name": "CINEMA_4D_Editor"
+    },
+    {
+      "name": ""
+    },
+    {
+      "children": [
+        7
+      ],
+      "name": "turtle"
+    },
+    {
+      "mesh": 0,
+      "name": "turtle_turtle_0"
+    },
+    {
+      "children": [
+        9
+      ],
+      "matrix": [
+        -4.4408920985006262e-16,
+        1,
+        0,
+        0,
+        -1,
+        -4.4408920985006262e-16,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0.58521687984466553,
+        4.4610123634338379,
+        5.2640380859375,
+        1
+      ],
+      "name": "eyes"
+    },
+    {
+      "mesh": 1,
+      "name": "eyes_eyes_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    }
+  ]
+}
+

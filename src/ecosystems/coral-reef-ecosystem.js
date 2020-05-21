@@ -1,61 +1,20 @@
-import {
-  Scene,
-  AmbientLight,
-  DirectionalLight,
-  TextureLoader,
-  PlaneGeometry,
-  Mesh,
-  MeshBasicMaterial,
-  DoubleSide
-} from 'three';
+import { Scene, AmbientLight, DirectionalLight } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import Scenography from './scenography';
 
 class CoralReefEcosystem extends Scene {
   constructor() {
     super();
 
-    const textureLoader = new TextureLoader();
-
     this.corals = [];
 
-    const terrain = new PlaneGeometry(30, 30);
-    this.floor = new Mesh(
-      terrain,
-      new MeshBasicMaterial({
-        map: textureLoader.load('assets/textures/ocean-floor.jpg'),
-        side: DoubleSide
+    this.add(
+      new Scenography({
+        floorImage: 'assets/textures/ocean-floor.jpg',
+        wallImage: 'assets/backgrounds/ocean-background.png',
+        ceilingImage: 'assets/textures/ocean-ceiling.jpg'
       })
     );
-    this.floor.rotation.x = -Math.PI / 2;
-
-    this.bg = new Mesh(
-      new PlaneGeometry(30, 30),
-      new MeshBasicMaterial({
-        map: textureLoader.load('assets/backgrounds/reef-bg.jpg')
-      })
-    );
-    this.bg.position.z = -15;
-    this.bg.position.y = 5;
-
-    this.bgl = new Mesh(
-      new PlaneGeometry(30, 30),
-      new MeshBasicMaterial({
-        map: textureLoader.load('assets/backgrounds/reef-bg.jpg')
-      })
-    );
-    this.bgl.position.x = -15;
-    this.bgl.rotation.y = Math.PI / 2;
-    this.bgl.position.y = 5;
-
-    this.bgr = new Mesh(
-      new PlaneGeometry(30, 30),
-      new MeshBasicMaterial({
-        map: textureLoader.load('assets/backgrounds/reef-bg.jpg')
-      })
-    );
-    this.bgr.position.x = 15;
-    this.bgr.rotation.y = -Math.PI / 2;
-    this.bgr.position.y = 5;
 
     const light = new AmbientLight();
     const dirLight = new DirectionalLight();
@@ -63,18 +22,14 @@ class CoralReefEcosystem extends Scene {
     const loader = new GLTFLoader();
     this.add(light);
     this.add(dirLight);
-    this.add(this.floor);
-    this.add(this.bg);
-    this.add(this.bgl);
-    this.add(this.bgr);
 
     loader.load(
-      'assets/manta-ray/scene.gltf',
+      'assets/coral-reef/manta-ray/scene.gltf',
       gltf => {
-        this.ray = gltf.scene;
-        this.ray.scale.set(0.2, 0.2, 0.2);
-        this.ray.position.set(0, 3, 0);
-        this.add(this.ray);
+        const ray = gltf.scene;
+        ray.scale.set(0.2, 0.2, 0.2);
+        ray.position.set(0, 3, 0);
+        this.add(ray);
       },
       undefined,
       function(error) {
@@ -83,12 +38,12 @@ class CoralReefEcosystem extends Scene {
     );
 
     loader.load(
-      'assets/jellyfish/scene.gltf',
+      'assets/coral-reef/jellyfish/scene.gltf',
       gltf => {
-        this.jellyfish = gltf.scene;
-        this.jellyfish.scale.set(0.6, 0.6, 0.6);
-        this.jellyfish.position.set(-4, 2, 2);
-        this.add(this.jellyfish);
+        const jellyfish = gltf.scene;
+        jellyfish.scale.set(0.6, 0.6, 0.6);
+        jellyfish.position.set(-4, 2, 2);
+        this.add(jellyfish);
       },
       undefined,
       function(error) {
@@ -97,14 +52,33 @@ class CoralReefEcosystem extends Scene {
     );
 
     loader.load(
-      'assets/coral/scene.gltf',
+      'assets/coral-reef/coral/scene.gltf',
       gltf => {
         const coralPositions = [
-          [0, 0, 0],
-          [1, 0, 0],
-          [-2, 0, 0],
-          [-1, 0, 3],
-          [-1, 0, 5]
+          [-2, 0, -1],
+          [-5, 0, -3],
+          [-3, 0, -5.5],
+          [-6, 0, -7],
+          [-7.5, 0, -4.5],
+          [2, 0, -1],
+          [5, 0, -3],
+          [3, 0, -5.5],
+          [6, 0, -7],
+          [7.5, 0, -4.5],
+          [-2, 0, 1],
+          [-5, 0, 3],
+          [-3, 0, 5.5],
+          [-6, 0, 7],
+          [-7.5, 0, 4.5],
+          [2, 0, 1],
+          [5, 0, 3],
+          [3, 0, 5.5],
+          [6, 0, 7],
+          [0, 0, 2],
+          [-2, 0, 5],
+          [0, 0, 7],
+          [2, 0, 4],
+          [1.5, 0, 8]
         ];
         coralPositions.forEach(coralPosition => {
           const coral = gltf.scene.clone();
@@ -121,12 +95,51 @@ class CoralReefEcosystem extends Scene {
     );
 
     loader.load(
-      'assets/white-shark/scene.gltf',
+      'assets/coral-reef/purple-coral/scene.gltf',
+      gltf => {
+        const purpleCoralPositions = [
+          [-5, 0, -0.6],
+          [0, 0, 3.6],
+          [6, 0, 5],
+          [9, 0, -6],
+          [-0.4, 0, -6]
+        ];
+        purpleCoralPositions.forEach(purpleColarPosition => {
+          const purpleColar = gltf.scene.clone();
+          purpleColar.scale.set(0.2, 0.2, 0.2);
+          const [x, y, z] = purpleColarPosition;
+          purpleColar.position.set(x, y, z);
+          this.add(purpleColar);
+        });
+      },
+      undefined,
+      function(error) {
+        console.error(error);
+      }
+    );
+
+    loader.load(
+      'assets/coral-reef/white-shark/scene.gltf',
       gltf => {
         const shark = gltf.scene;
         shark.scale.set(0.6, 0.6, 0.6);
-        shark.position.set(3, 4, 1);
+        shark.position.set(5, 4, 1);
+        shark.rotation.y = -Math.PI / 4;
         this.add(shark);
+      },
+      undefined,
+      function(error) {
+        console.error(error);
+      }
+    );
+
+    loader.load(
+      'assets/coral-reef/seastar/scene.gltf',
+      gltf => {
+        const seastar = gltf.scene;
+        seastar.scale.set(0.01, 0.01, 0.01);
+        seastar.position.set(-3, 0, 3);
+        this.add(seastar);
       },
       undefined,
       function(error) {
