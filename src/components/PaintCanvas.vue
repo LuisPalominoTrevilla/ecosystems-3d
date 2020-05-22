@@ -34,8 +34,8 @@ export default {
         0.01,
         100
       );
-      this.camera.position.z = 7;
-      this.camera.position.y = 4;
+      this.camera.position.z = 15;
+      this.camera.position.y = 8;
 
       this.ecosystems.push(ecosystems.coralReefEcosystem);
 

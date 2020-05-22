@@ -27,8 +27,10 @@ class CoralReefEcosystem extends Scene {
       'assets/coral-reef/manta-ray/scene.gltf',
       gltf => {
         const ray = gltf.scene;
-        ray.scale.set(0.2, 0.2, 0.2);
-        ray.position.set(0, 3, 0);
+        ray.scale.set(0.3, 0.3, 0.3);
+        ray.position.set(-2, 10, -6);
+        ray.rotation.x = Math.PI / 6;
+        ray.rotation.z = -Math.PI / 8;
         this.add(ray);
       },
       undefined,
@@ -41,8 +43,8 @@ class CoralReefEcosystem extends Scene {
       'assets/coral-reef/jellyfish/scene.gltf',
       gltf => {
         const jellyfish = gltf.scene;
-        jellyfish.scale.set(0.6, 0.6, 0.6);
-        jellyfish.position.set(-4, 2, 2);
+        jellyfish.scale.set(0.8, 0.8, 0.8);
+        jellyfish.position.set(-6, 2, 2);
         this.add(jellyfish);
       },
       undefined,
@@ -122,8 +124,7 @@ class CoralReefEcosystem extends Scene {
       'assets/coral-reef/white-shark/scene.gltf',
       gltf => {
         const shark = gltf.scene;
-        shark.scale.set(0.6, 0.6, 0.6);
-        shark.position.set(5, 4, 1);
+        shark.position.set(5, 6, 1);
         shark.rotation.y = -Math.PI / 4;
         this.add(shark);
       },
@@ -140,6 +141,110 @@ class CoralReefEcosystem extends Scene {
         seastar.scale.set(0.01, 0.01, 0.01);
         seastar.position.set(-3, 0, 3);
         this.add(seastar);
+      },
+      undefined,
+      function(error) {
+        console.error(error);
+      }
+    );
+
+    loader.load(
+      'assets/coral-reef/clownfish/scene.gltf',
+      gltf => {
+        const clownfish = gltf.scene;
+        clownfish.scale.set(0.1, 0.1, 0.1);
+        clownfish.position.set(5, 1, 6);
+        this.add(clownfish);
+      },
+      undefined,
+      function(error) {
+        console.error(error);
+      }
+    );
+
+    loader.load(
+      'assets/coral-reef/blacktip-reef-shark/scene.gltf',
+      gltf => {
+        const shark = gltf.scene;
+        shark.scale.set(0.6, 0.6, 0.6);
+        shark.position.set(-5, 0.3, -6);
+        this.add(shark);
+      },
+      undefined,
+      function(error) {
+        console.error(error);
+      }
+    );
+
+    loader.load(
+      'assets/coral-reef/blue-ringed-octopus/scene.gltf',
+      gltf => {
+        const octopus = gltf.scene;
+        octopus.scale.set(0.2, 0.2, 0.2);
+        octopus.position.set(-6, 0, 5);
+        this.add(octopus);
+      },
+      undefined,
+      function(error) {
+        console.error(error);
+      }
+    );
+
+    loader.load(
+      'assets/coral-reef/fiddler-crab/scene.gltf',
+      gltf => {
+        const crab = gltf.scene;
+        crab.scale.set(2, 2, 2);
+        crab.position.set(7, 0.3, -1);
+        this.add(crab);
+      },
+      undefined,
+      function(error) {
+        console.error(error);
+      }
+    );
+
+    loader.load(
+      'assets/coral-reef/octopus/scene.gltf',
+      gltf => {
+        const octopus = gltf.scene;
+        octopus.scale.set(3, 3, 3);
+        octopus.position.set(5, 10, -6);
+        this.add(octopus);
+      },
+      undefined,
+      function(error) {
+        console.error(error);
+      }
+    );
+
+    loader.load(
+      'assets/coral-reef/sea-turtle/scene.gltf',
+      gltf => {
+        const childTurtle = gltf.scene.clone();
+        childTurtle.position.set(-8, 6, 6);
+        this.add(childTurtle);
+
+        const turtle = gltf.scene.clone();
+        turtle.scale.set(3, 3, 3);
+        turtle.position.set(-6, 7, 5);
+        turtle.rotation.y = Math.PI / 2;
+        this.add(turtle);
+      },
+      undefined,
+      function(error) {
+        console.error(error);
+      }
+    );
+
+    loader.load(
+      'assets/coral-reef/squid/scene.gltf',
+      gltf => {
+        const squid = gltf.scene;
+        squid.scale.set(0.01, 0.01, 0.01);
+        squid.position.set(8, 4, 7);
+        //squid.rotation.y = Math.PI / 2;
+        this.add(squid);
       },
       undefined,
       function(error) {
