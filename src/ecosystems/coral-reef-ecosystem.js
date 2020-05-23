@@ -1,12 +1,10 @@
-import { Scene, AmbientLight, DirectionalLight } from 'three';
+import { Scene, AmbientLight, DirectionalLight, Vector3 } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import Scenography from './scenography';
 
 class CoralReefEcosystem extends Scene {
   constructor() {
     super();
-
-    this.corals = [];
 
     this.add(
       new Scenography({
@@ -128,6 +126,8 @@ class CoralReefEcosystem extends Scene {
         const shark = gltf.scene;
         shark.position.set(5, 6, 1);
         shark.rotation.y = -Math.PI / 4;
+        shark.name = 'white-shark';
+        shark.viewPosition = new Vector3(2, 6, 7);
         this.add(shark);
       },
       undefined,
