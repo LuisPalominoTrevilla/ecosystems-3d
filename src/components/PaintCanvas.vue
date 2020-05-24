@@ -26,7 +26,8 @@ export default {
       renderer: null,
       raycaster: null,
       container: null,
-      mesh: null
+      mesh: null,
+      isTweening: false
     };
   },
 
@@ -74,10 +75,9 @@ export default {
       this.orbitControls.update();
     },
 
-    async panCam(target, position, tweenDuration) {
-      TWEEN.removeAll();
-
+    async tweenCam(target, position, tweenDuration) {
       this.toggleOrbitControls(false);
+      TWEEN.removeAll();
 
       const { x: xTarget, y: yTarget, z: zTarget } = target;
       const { x: xPosition, y: yPosition, z: zPosition } = position;
@@ -109,9 +109,11 @@ export default {
       this.orbitControls.enableZoom = enable;
       this.orbitControls.enableRotate = enable;
       this.orbitControls.enablePan = enable;
+      this.isTweening = !enable;
     },
 
     onMouseClick(event) {
+      if (this.isTweening) return;
       const rect = event.target.getBoundingClientRect();
       const mouse3D = {
         x: (2 * (event.clientX - rect.left)) / this.container.clientWidth - 1,
@@ -128,7 +130,7 @@ export default {
           object = object.parent;
         }
         if (object instanceof Group && object.viewPosition) {
-          this.panCam(object.position, object.viewPosition, 2000);
+          this.tweenCam(object.position, object.viewPosition, 2000);
         }
       }
     }
