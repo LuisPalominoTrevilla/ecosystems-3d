@@ -1,6 +1,7 @@
-import { Scene, AmbientLight, DirectionalLight, Vector3 } from 'three';
+import { Scene, AmbientLight, DirectionalLight, Vector3, Color } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import Scenography from './scenography';
+import Scenography from '../models/scenography';
+import Model from '../models/model';
 
 class CoralReefEcosystem extends Scene {
   constructor() {
@@ -17,14 +18,20 @@ class CoralReefEcosystem extends Scene {
     const light = new AmbientLight();
     const dirLight = new DirectionalLight();
 
-    const loader = new GLTFLoader();
+    this.background = new Color(0xff87ceeb);
     this.add(light);
     this.add(dirLight);
+
+    const loader = new GLTFLoader();
 
     loader.load(
       'assets/coral-reef/manta-ray/scene.gltf',
       gltf => {
-        const ray = gltf.scene;
+        const ray = new Model({
+          mesh: gltf.scene,
+          name: 'manta-ray',
+          spectatorPosition: new Vector3(2, 6, -1)
+        });
         ray.scale.set(0.3, 0.3, 0.3);
         ray.position.set(-2, 10, -6);
         ray.rotation.x = Math.PI / 6;
@@ -40,7 +47,11 @@ class CoralReefEcosystem extends Scene {
     loader.load(
       'assets/coral-reef/jellyfish/scene.gltf',
       gltf => {
-        const jellyfish = gltf.scene;
+        const jellyfish = new Model({
+          mesh: gltf.scene,
+          name: 'jellyfish',
+          spectatorPosition: new Vector3(-2, 4, 1)
+        });
         jellyfish.scale.set(0.8, 0.8, 0.8);
         jellyfish.position.set(-6, 2, 2);
         this.add(jellyfish);
@@ -66,7 +77,7 @@ class CoralReefEcosystem extends Scene {
           [6, 0, -6],
           [11, 0, -3],
           [9, 0, -11],
-          [7, 0, -1],
+          [6, 0, -1],
           [-2, 0, 2],
           [-11, 0, 1],
           [-8, 0, 4],
@@ -123,11 +134,13 @@ class CoralReefEcosystem extends Scene {
     loader.load(
       'assets/coral-reef/white-shark/scene.gltf',
       gltf => {
-        const shark = gltf.scene;
+        const shark = new Model({
+          mesh: gltf.scene,
+          name: 'white-shark',
+          spectatorPosition: new Vector3(2, 6, 7)
+        });
         shark.position.set(5, 6, 1);
         shark.rotation.y = -Math.PI / 4;
-        shark.name = 'white-shark';
-        shark.viewPosition = new Vector3(2, 6, 7);
         this.add(shark);
       },
       undefined,
@@ -139,7 +152,11 @@ class CoralReefEcosystem extends Scene {
     loader.load(
       'assets/coral-reef/seastar/scene.gltf',
       gltf => {
-        const seastar = gltf.scene;
+        const seastar = new Model({
+          mesh: gltf.scene,
+          name: 'sea-star',
+          spectatorPosition: new Vector3(-3, 3, 3.8)
+        });
         seastar.scale.set(0.01, 0.01, 0.01);
         seastar.position.set(-3, 0, 3);
         this.add(seastar);
@@ -153,7 +170,11 @@ class CoralReefEcosystem extends Scene {
     loader.load(
       'assets/coral-reef/clownfish/scene.gltf',
       gltf => {
-        const clownfish = gltf.scene;
+        const clownfish = new Model({
+          mesh: gltf.scene,
+          name: 'clown-fish',
+          spectatorPosition: new Vector3(3.5, 2.5, 7)
+        });
         clownfish.scale.set(0.1, 0.1, 0.1);
         clownfish.position.set(5, 1, 6);
         this.add(clownfish);
@@ -167,9 +188,13 @@ class CoralReefEcosystem extends Scene {
     loader.load(
       'assets/coral-reef/blacktip-reef-shark/scene.gltf',
       gltf => {
-        const shark = gltf.scene;
+        const shark = new Model({
+          mesh: gltf.scene,
+          name: 'blacktip-reef-shark',
+          spectatorPosition: new Vector3(-2, 2.5, -4)
+        });
         shark.scale.set(0.6, 0.6, 0.6);
-        shark.position.set(-5, 0.3, -6);
+        shark.position.set(-5, 0, -6);
         this.add(shark);
       },
       undefined,
@@ -181,7 +206,11 @@ class CoralReefEcosystem extends Scene {
     loader.load(
       'assets/coral-reef/blue-ringed-octopus/scene.gltf',
       gltf => {
-        const octopus = gltf.scene;
+        const octopus = new Model({
+          mesh: gltf.scene,
+          name: 'blue-ringed-octopus',
+          spectatorPosition: new Vector3(-7, 0.5, 6)
+        });
         octopus.scale.set(0.2, 0.2, 0.2);
         octopus.position.set(-6, 0, 5);
         this.add(octopus);
@@ -195,7 +224,11 @@ class CoralReefEcosystem extends Scene {
     loader.load(
       'assets/coral-reef/fiddler-crab/scene.gltf',
       gltf => {
-        const crab = gltf.scene;
+        const crab = new Model({
+          mesh: gltf.scene,
+          name: 'fiddler-crab',
+          spectatorPosition: new Vector3(7, 1.5, 1)
+        });
         crab.scale.set(2, 2, 2);
         crab.position.set(7, 0.3, -1);
         this.add(crab);
@@ -209,7 +242,11 @@ class CoralReefEcosystem extends Scene {
     loader.load(
       'assets/coral-reef/octopus/scene.gltf',
       gltf => {
-        const octopus = gltf.scene;
+        const octopus = new Model({
+          mesh: gltf.scene,
+          name: 'octopus',
+          spectatorPosition: new Vector3(3, 10, -3.5)
+        });
         octopus.scale.set(3, 3, 3);
         octopus.position.set(5, 10, -6);
         this.add(octopus);
@@ -223,11 +260,19 @@ class CoralReefEcosystem extends Scene {
     loader.load(
       'assets/coral-reef/sea-turtle/scene.gltf',
       gltf => {
-        const childTurtle = gltf.scene.clone();
+        const childTurtle = new Model({
+          mesh: gltf.scene.clone(),
+          name: 'sea-turtle-child',
+          spectatorPosition: new Vector3(-7, 6, 7)
+        });
         childTurtle.position.set(-8, 6, 6);
         this.add(childTurtle);
 
-        const turtle = gltf.scene.clone();
+        const turtle = new Model({
+          mesh: gltf.scene.clone(),
+          name: 'sea-turtle',
+          spectatorPosition: new Vector3(-6, 8, 8)
+        });
         turtle.scale.set(3, 3, 3);
         turtle.position.set(-6, 7, 5);
         turtle.rotation.y = Math.PI / 2;
@@ -242,10 +287,13 @@ class CoralReefEcosystem extends Scene {
     loader.load(
       'assets/coral-reef/squid/scene.gltf',
       gltf => {
-        const squid = gltf.scene;
+        const squid = new Model({
+          mesh: gltf.scene,
+          name: 'squid',
+          spectatorPosition: new Vector3(7, 4, 9)
+        });
         squid.scale.set(0.01, 0.01, 0.01);
         squid.position.set(8, 4, 7);
-        //squid.rotation.y = Math.PI / 2;
         this.add(squid);
       },
       undefined,

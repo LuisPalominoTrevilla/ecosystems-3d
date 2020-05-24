@@ -3,16 +3,11 @@
 </template>
 
 <script>
-import {
-  PerspectiveCamera,
-  WebGLRenderer,
-  Scene,
-  Raycaster,
-  Group
-} from 'three';
+import { PerspectiveCamera, WebGLRenderer, Scene, Raycaster } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import TWEEN from '@tweenjs/tween.js';
 import ecosystems from '../ecosystems';
+import Model from '../models/model';
 
 export default {
   name: 'PaintCanvas',
@@ -27,7 +22,9 @@ export default {
       raycaster: null,
       container: null,
       mesh: null,
-      isTweening: false
+      isTweening: false,
+      isMouseDown: false,
+      isMouseDrag: false
     };
   },
 
@@ -63,7 +60,27 @@ export default {
         this.renderer.domElement
       );
       this.container.appendChild(this.renderer.domElement);
-      this.container.addEventListener('mouseup', this.onMouseClick, false);
+      this.container.addEventListener(
+        'mousedown',
+        () => (this.isMouseDown = true),
+        false
+      );
+      this.container.addEventListener(
+        'mousemove',
+        () => {
+          if (this.isMouseDown) this.isMouseDrag = true;
+        },
+        false
+      );
+      this.container.addEventListener(
+        'mouseup',
+        evt => {
+          if (!this.isMouseDrag) this.onMouseClick(evt);
+          this.isMouseDown = false;
+          this.isMouseDrag = false;
+        },
+        false
+      );
     },
 
     animate() {
@@ -129,8 +146,8 @@ export default {
         while (!(object.parent instanceof Scene)) {
           object = object.parent;
         }
-        if (object instanceof Group && object.viewPosition) {
-          this.tweenCam(object.position, object.viewPosition, 2000);
+        if (object instanceof Model) {
+          this.tweenCam(object.position, object.spectatorPosition, 2000);
         }
       }
     }
