@@ -11,6 +11,7 @@ import {
   Group
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import TWEEN from '@tweenjs/tween.js';
 import ecosystems from '../ecosystems';
 
 export default {
@@ -61,7 +62,7 @@ export default {
         this.renderer.domElement
       );
       this.container.appendChild(this.renderer.domElement);
-      this.container.addEventListener('mousedown', this.onMouseClick, false);
+      this.container.addEventListener('mouseup', this.onMouseClick, false);
     },
 
     animate() {
@@ -69,6 +70,45 @@ export default {
       const selectedEcosystem = this.ecosystems[this.selectedEcosystem];
       selectedEcosystem.animate();
       this.renderer.render(selectedEcosystem, this.camera);
+      TWEEN.update();
+      this.orbitControls.update();
+    },
+
+    async panCam(target, position, tweenDuration) {
+      TWEEN.removeAll();
+
+      this.toggleOrbitControls(false);
+
+      const { x: xTarget, y: yTarget, z: zTarget } = target;
+      const { x: xPosition, y: yPosition, z: zPosition } = position;
+
+      const camNewPosition = { x: xPosition, y: yPosition, z: zPosition };
+      const targetNewPos = { x: xTarget, y: yTarget, z: zTarget };
+
+      await Promise.all([
+        new Promise(resolve =>
+          new TWEEN.Tween(this.camera.position)
+            .to(camNewPosition, tweenDuration)
+            .easing(TWEEN.Easing.Quadratic.InOut)
+            .onComplete(resolve)
+            .start()
+        ),
+        new Promise(resolve =>
+          new TWEEN.Tween(this.orbitControls.target)
+            .to(targetNewPos, tweenDuration)
+            .easing(TWEEN.Easing.Quadratic.InOut)
+            .onComplete(resolve)
+            .start()
+        )
+      ]);
+
+      this.toggleOrbitControls(true);
+    },
+
+    toggleOrbitControls(enable) {
+      this.orbitControls.enableZoom = enable;
+      this.orbitControls.enableRotate = enable;
+      this.orbitControls.enablePan = enable;
     },
 
     onMouseClick(event) {
@@ -88,11 +128,7 @@ export default {
           object = object.parent;
         }
         if (object instanceof Group && object.viewPosition) {
-          const { x: posx, y: posy, z: posz } = object.viewPosition;
-          this.camera.position.set(posx, posy, posz);
-          const { x, y, z } = object.position;
-          this.orbitControls.target.set(x, y, z);
-          this.orbitControls.update();
+          this.panCam(object.position, object.viewPosition, 2000);
         }
       }
     }
