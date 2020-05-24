@@ -3,10 +3,11 @@
 </template>
 
 <script>
-import { PerspectiveCamera, WebGLRenderer, Scene, Raycaster } from 'three';
+import { PerspectiveCamera, WebGLRenderer, Raycaster } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import TWEEN from '@tweenjs/tween.js';
 import ecosystems from '../ecosystems';
+import BaseEcosystem from '../ecosystems/base-ecosystem';
 import Model from '../models/model';
 
 export default {
@@ -143,7 +144,7 @@ export default {
       );
       if (intersects.length > 0) {
         let object = intersects[0].object;
-        while (!(object.parent instanceof Scene)) {
+        while (!(object.parent instanceof BaseEcosystem)) {
           object = object.parent;
         }
         if (object instanceof Model) {

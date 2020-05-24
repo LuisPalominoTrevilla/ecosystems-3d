@@ -1,9 +1,9 @@
-import { Scene, AmbientLight, DirectionalLight, Vector3, Color } from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { Vector3, Color } from 'three';
 import Scenography from '../models/scenography';
 import Model from '../models/model';
+import BaseEcosystem from './base-ecosystem';
 
-class CoralReefEcosystem extends Scene {
+class CoralReefEcosystem extends BaseEcosystem {
   constructor() {
     super();
 
@@ -15,16 +15,9 @@ class CoralReefEcosystem extends Scene {
       })
     );
 
-    const light = new AmbientLight();
-    const dirLight = new DirectionalLight();
-
     this.background = new Color(0xff87ceeb);
-    this.add(light);
-    this.add(dirLight);
 
-    const loader = new GLTFLoader();
-
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/manta-ray/scene.gltf',
       gltf => {
         const ray = new Model({
@@ -44,7 +37,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/jellyfish/scene.gltf',
       gltf => {
         const jellyfish = new Model({
@@ -62,7 +55,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/coral/scene.gltf',
       gltf => {
         const coralPositions = [
@@ -105,7 +98,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/purple-coral/scene.gltf',
       gltf => {
         const purpleCoralPositions = [
@@ -131,7 +124,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/white-shark/scene.gltf',
       gltf => {
         const shark = new Model({
@@ -149,7 +142,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/seastar/scene.gltf',
       gltf => {
         const seastar = new Model({
@@ -167,7 +160,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/clownfish/scene.gltf',
       gltf => {
         const clownfish = new Model({
@@ -185,7 +178,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/blacktip-reef-shark/scene.gltf',
       gltf => {
         const shark = new Model({
@@ -203,7 +196,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/blue-ringed-octopus/scene.gltf',
       gltf => {
         const octopus = new Model({
@@ -221,7 +214,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/fiddler-crab/scene.gltf',
       gltf => {
         const crab = new Model({
@@ -239,7 +232,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/octopus/scene.gltf',
       gltf => {
         const octopus = new Model({
@@ -257,7 +250,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/sea-turtle/scene.gltf',
       gltf => {
         const childTurtle = new Model({
@@ -284,7 +277,7 @@ class CoralReefEcosystem extends Scene {
       }
     );
 
-    loader.load(
+    this.gltgLoader.load(
       'assets/coral-reef/squid/scene.gltf',
       gltf => {
         const squid = new Model({
