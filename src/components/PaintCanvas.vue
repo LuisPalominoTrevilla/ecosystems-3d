@@ -36,7 +36,8 @@ export default {
       );
       this.camera.position.z = 3;
 
-      this.ecosystems.push(ecosystems.testEcosystem);
+      //this.ecosystems.push(ecosystems.testEcosystem);
+      this.ecosystems.push(ecosystems.jungleEcosystem);
 
       this.renderer = new WebGLRenderer({ antialias: true });
       this.renderer.setSize(container.clientWidth, container.clientHeight);
