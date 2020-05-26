@@ -1,0 +1,536 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 112,
+      "max": [
+        2.7047207355499268,
+        -4.0429348945617676,
+        3.2149479389190674
+      ],
+      "min": [
+        1.9101650714874268,
+        -5.2042245864868164,
+        2.5918869972229004
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1344,
+      "componentType": 5126,
+      "count": 112,
+      "max": [
+        0.99490857124328613,
+        0.96923530101776123,
+        0.95105665922164917
+      ],
+      "min": [
+        -0.99490869045257568,
+        -0.96923530101776123,
+        -0.95105659961700439
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 112,
+      "max": [
+        0.99959802627563477,
+        0.99964672327041626,
+        0.42413538694381714,
+        1
+      ],
+      "min": [
+        -0.99746257066726685,
+        -0.99813365936279297,
+        -0.62025785446166992,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 112,
+      "max": [
+        0.99726182222366333,
+        0.9947018027305603
+      ],
+      "min": [
+        0.85140073299407959,
+        0.84637165069580078
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 540,
+      "max": [
+        111
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 2688,
+      "componentType": 5126,
+      "count": 112,
+      "max": [
+        -1.8878263235092163,
+        -4.0398077964782715,
+        3.2149479389190674
+      ],
+      "min": [
+        -2.6736223697662354,
+        -5.2073512077331543,
+        2.5918869972229004
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 4032,
+      "componentType": 5126,
+      "count": 112,
+      "max": [
+        0.99670320749282837,
+        0.96419113874435425,
+        0.95105665922164917
+      ],
+      "min": [
+        -0.99670320749282837,
+        -0.96419060230255127,
+        -0.95105659961700439
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 1792,
+      "componentType": 5126,
+      "count": 112,
+      "max": [
+        0.98871392011642456,
+        0.99819076061248779,
+        0.48612943291664124,
+        1
+      ],
+      "min": [
+        -0.98805254697799683,
+        -0.99977076053619385,
+        -0.88720977306365967,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 896,
+      "componentType": 5126,
+      "count": 112,
+      "max": [
+        0.84907335042953491,
+        0.9971197247505188
+      ],
+      "min": [
+        0.70531183481216431,
+        0.84474629163742065
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 2160,
+      "componentType": 5125,
+      "count": 540,
+      "max": [
+        111
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 5376,
+      "componentType": 5126,
+      "count": 3905,
+      "max": [
+        13.618958473205566,
+        14.849291801452637,
+        7.5173301696777344
+      ],
+      "min": [
+        -13.618958473205566,
+        -6.403874397277832,
+        0.89790886640548706
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 52236,
+      "componentType": 5126,
+      "count": 3905,
+      "max": [
+        0.99985486268997192,
+        0.99925613403320312,
+        0.9999992847442627
+      ],
+      "min": [
+        -0.99985486268997192,
+        -0.99998140335083008,
+        -0.99999541044235229
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 3584,
+      "componentType": 5126,
+      "count": 3905,
+      "max": [
+        0.9999992847442627,
+        0.99993538856506348,
+        0.99973928928375244,
+        1
+      ],
+      "min": [
+        -0.99843192100524902,
+        -0.99993622303009033,
+        -0.98953342437744141,
+        -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 1792,
+      "componentType": 5126,
+      "count": 3905,
+      "max": [
+        0.99749755859375,
+        0.99746125936508179
+      ],
+      "min": [
+        0.00066542625427246094,
+        0.0016011223196983337
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 4320,
+      "componentType": 5125,
+      "count": 20964,
+      "max": [
+        3904
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Susannetjotta (https://sketchfab.com/susannetjotta)",
+      "license": "CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)",
+      "source": "https://sketchfab.com/3d-models/underwater-scene-manta-ray-b6cf8b836e6840ef8418d8e18b928df8",
+      "title": "Underwater Scene - Manta Ray"
+    },
+    "generator": "Sketchfab-8.50.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 88176,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 33032,
+      "byteOffset": 88176,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 99096,
+      "byteOffset": 121208,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 66064,
+      "byteOffset": 220304,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 286368,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Manta_Ray_Texture_baseColor.png"
+    },
+    {
+      "uri": "textures/Manta_Ray_Texture_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Manta_Ray_Texture_emissive.png"
+    },
+    {
+      "uri": "textures/Manta_Ray_Texture_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        1,
+        1,
+        1
+      ],
+      "emissiveTexture": {
+        "index": 2,
+        "texCoord": 0
+      },
+      "name": "Manta_Ray_Texture",
+      "normalTexture": {
+        "index": 3,
+        "scale": 1,
+        "texCoord": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 1,
+        "metallicRoughnessTexture": {
+          "index": 1,
+          "texCoord": 0
+        },
+        "roughnessFactor": 1
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "polySurface1_Manta_Ray_Texture_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "polySurface2_Manta_Ray_Texture_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "polySurface3_Manta_Ray_Texture_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 11,
+            "POSITION": 10,
+            "TANGENT": 12,
+            "TEXCOORD_0": 13
+          },
+          "indices": 14,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.99964725971221924,
+        0.026557840406894684,
+        -2.832769343193999e-16,
+        0,
+        0.026557840406894684,
+        -0.99964725971221924,
+        -1.6081226229577292e-16,
+        0,
+        -2.8744785690057808e-16,
+        1.5323232326947179e-16,
+        -1,
+        0,
+        0.11214614659547806,
+        -8.4439373016357422,
+        -8.4152431488037109,
+        1
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "5165a807dfa144c8af23010f1befb263.fbx"
+    },
+    {
+      "children": [
+        4
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        5,
+        7,
+        9
+      ],
+      "name": "Left_Eye1"
+    },
+    {
+      "children": [
+        6
+      ],
+      "name": "polySurface1"
+    },
+    {
+      "mesh": 0,
+      "name": "polySurface1_Manta_Ray_Texture_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "name": "polySurface2"
+    },
+    {
+      "mesh": 1,
+      "name": "polySurface2_Manta_Ray_Texture_0"
+    },
+    {
+      "children": [
+        10
+      ],
+      "name": "polySurface3"
+    },
+    {
+      "mesh": 2,
+      "name": "polySurface3_Manta_Ray_Texture_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    }
+  ]
+}
+

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <paint-canvas class="paint-canvas" />
+    <div class="ui-controls"><p>Hello UI</p></div>
   </div>
 </template>
 
@@ -27,8 +28,12 @@ body {
   height: 100%;
 
   .paint-canvas {
-    flex: 2;
+    flex: 4;
     height: 100%;
+  }
+
+  .ui-controls {
+    flex: 1;
   }
 }
 </style>
