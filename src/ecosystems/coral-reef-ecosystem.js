@@ -85,9 +85,13 @@ class CoralReefEcosystem extends BaseEcosystem {
           [10, 0, 9]
         ];
         coralPositions.forEach(coralPosition => {
-          const coral = gltf.scene.clone();
-          coral.scale.set(0.2, 0.2, 0.2);
           const [x, y, z] = coralPosition;
+          const coral = new Model({
+            mesh: gltf.scene.clone(),
+            name: 'red-coral',
+            spectatorPosition: new Vector3(x, y + 2, z + 2)
+          });
+          coral.scale.set(0.2, 0.2, 0.2);
           coral.position.set(x, y, z);
           this.add(coral);
         });
@@ -111,9 +115,13 @@ class CoralReefEcosystem extends BaseEcosystem {
           [-2, 0, 11]
         ];
         purpleCoralPositions.forEach(purpleColarPosition => {
-          const purpleColar = gltf.scene.clone();
-          purpleColar.scale.set(0.2, 0.2, 0.2);
           const [x, y, z] = purpleColarPosition;
+          const purpleColar = new Model({
+            mesh: gltf.scene.clone(),
+            name: 'purple-coral',
+            spectatorPosition: new Vector3(x, y + 2, z + 2)
+          });
+          purpleColar.scale.set(0.2, 0.2, 0.2);
           purpleColar.position.set(x, y, z);
           this.add(purpleColar);
         });

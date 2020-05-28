@@ -10,7 +10,6 @@ class BaseEcosystem extends Scene {
     this.add(light);
     this.add(dirLight);
 
-    this.models = [];
     this.gltgLoader = new GLTFLoader();
   }
 }
