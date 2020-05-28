@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <paint-canvas class="paint-canvas" />
+    <interactive-screen
+      :selected-ecosystem="selectedEcosystem"
+      class="interactive-screen"
+    />
     <div class="ui-controls"><p>Hello UI</p></div>
   </div>
 </template>
 
 <script>
-import PaintCanvas from './components/PaintCanvas';
+import InteractiveScreen from './components/InteractiveScreen';
+import ecosystems from './ecosystems';
 
 export default {
   name: 'App',
+
   components: {
-    PaintCanvas
+    InteractiveScreen
+  },
+
+  data() {
+    return {
+      selectedEcosystem: ecosystems.coralReefEcosystem
+    };
   }
 };
 </script>
@@ -27,7 +38,7 @@ body {
   display: flex;
   height: 100%;
 
-  .paint-canvas {
+  .interactive-screen {
     flex: 4;
     height: 100%;
     position: relative;
