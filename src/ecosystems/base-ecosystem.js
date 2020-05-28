@@ -2,7 +2,9 @@ import { Scene, AmbientLight, DirectionalLight } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 class BaseEcosystem extends Scene {
-  constructor() {
+  constructor(loadingManager) {
+    if (!loadingManager)
+      return console.error('Required loading manager missing');
     super();
 
     const light = new AmbientLight();
@@ -10,7 +12,7 @@ class BaseEcosystem extends Scene {
     this.add(light);
     this.add(dirLight);
 
-    this.gltgLoader = new GLTFLoader();
+    this.gltgLoader = new GLTFLoader(loadingManager);
   }
 }
 

@@ -4,8 +4,8 @@ import Model from '../models/model';
 import BaseEcosystem from './base-ecosystem';
 
 class CoralReefEcosystem extends BaseEcosystem {
-  constructor() {
-    super();
+  constructor(loadingManager) {
+    super(loadingManager);
 
     this.add(
       new Scenography({

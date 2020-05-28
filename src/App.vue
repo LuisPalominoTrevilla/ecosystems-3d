@@ -30,6 +30,7 @@ body {
   .paint-canvas {
     flex: 4;
     height: 100%;
+    position: relative;
   }
 
   .ui-controls {
