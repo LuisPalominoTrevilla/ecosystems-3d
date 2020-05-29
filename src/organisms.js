@@ -1,5 +1,5 @@
 export default {
-  floraFaunaInformation: {
+  'coral-reef': {
     'clown-fish': {
       name: 'Clown Fish',
       image: 'clown-fish.jpg',

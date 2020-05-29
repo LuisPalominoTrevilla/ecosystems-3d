@@ -17,7 +17,7 @@
 import InteractiveScreen from './components/InteractiveScreen';
 import EcosystemInformation from './components/EcosystemInformation';
 import ecosystems from './ecosystems';
-import Constants from './constants';
+import Organisms from './organisms';
 
 export default {
   name: 'App',
@@ -37,7 +37,7 @@ export default {
   methods: {
     selectOrganism(organismName) {
       this.selectedOrganism =
-        Constants.floraFaunaInformation[organismName] ?? null;
+        Organisms[this.selectedEcosystem.id][organismName] ?? null;
     }
   }
 };
