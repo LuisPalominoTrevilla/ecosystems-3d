@@ -4,19 +4,21 @@
       :selected-ecosystem="selectedEcosystem"
       class="interactive-screen"
     />
-    <div class="ui-controls"><p>Hello UI</p></div>
+    <ecosystem-information class="ecosystem-information" />
   </div>
 </template>
 
 <script>
 import InteractiveScreen from './components/InteractiveScreen';
+import EcosystemInformation from './components/EcosystemInformation';
 import ecosystems from './ecosystems';
 
 export default {
   name: 'App',
 
   components: {
-    InteractiveScreen
+    InteractiveScreen,
+    EcosystemInformation
   },
 
   data() {
@@ -39,13 +41,13 @@ body {
   height: 100%;
 
   .interactive-screen {
-    flex: 4;
+    flex: 10;
     height: 100%;
     position: relative;
   }
 
-  .ui-controls {
-    flex: 1;
+  .ecosystem-information {
+    flex: 3;
   }
 }
 </style>
