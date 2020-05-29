@@ -2,8 +2,8 @@
   <div class="container">
     <div v-if="shouldShowEcosystem">
       <h1 class="title">{{ selectedEcosystem.name }}</h1>
-      <p v-for="(p, i) in selectedEcosystem.description" :key="i">
-        {{ p }}
+      <p v-for="(paragraph, i) in selectedEcosystem.description" :key="i">
+        {{ paragraph }}
       </p>
       <div class="button-container">
         <button>Go Back</button>
@@ -18,7 +18,7 @@
           "
           :alt="`${selectedOrganism.name} image`"
         />
-        <div>
+        <div class="organism-name">
           <h2>{{ selectedOrganism.name }}</h2>
           <p class="scientific-name">{{ selectedOrganism.scientificName }}</p>
         </div>
@@ -80,6 +80,10 @@ export default {
     .organism-image {
       width: 12rem;
       border-radius: 12px;
+    }
+
+    .organism-name {
+      text-align: center;
     }
 
     .scientific-name {

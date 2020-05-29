@@ -88,7 +88,7 @@ class CoralReefEcosystem extends BaseEcosystem {
           const [x, y, z] = coralPosition;
           const coral = new Model({
             mesh: gltf.scene.clone(),
-            name: 'red-coral',
+            name: 'coral-polyp',
             spectatorPosition: new Vector3(x, y + 2, z + 2)
           });
           coral.scale.set(0.2, 0.2, 0.2);
@@ -118,7 +118,7 @@ class CoralReefEcosystem extends BaseEcosystem {
           const [x, y, z] = purpleColarPosition;
           const purpleColar = new Model({
             mesh: gltf.scene.clone(),
-            name: 'purple-coral',
+            name: 'sponge',
             spectatorPosition: new Vector3(x, y + 2, z + 2)
           });
           purpleColar.scale.set(0.2, 0.2, 0.2);
@@ -227,7 +227,7 @@ class CoralReefEcosystem extends BaseEcosystem {
       gltf => {
         const crab = new Model({
           mesh: gltf.scene,
-          name: 'fiddler-crab',
+          name: 'crab',
           spectatorPosition: new Vector3(7, 1.5, 1)
         });
         crab.scale.set(2, 2, 2);
@@ -263,7 +263,7 @@ class CoralReefEcosystem extends BaseEcosystem {
       gltf => {
         const childTurtle = new Model({
           mesh: gltf.scene.clone(),
-          name: 'sea-turtle-child',
+          name: 'sea-turtle',
           spectatorPosition: new Vector3(-7, 6, 7)
         });
         childTurtle.position.set(-8, 6, 6);
