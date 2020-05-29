@@ -6,6 +6,7 @@
       @select-organism="selectOrganism"
     />
     <ecosystem-information
+      :selected-ecosystem="selectedEcosystem"
       :selected-organism="selectedOrganism"
       class="ecosystem-information"
     />
@@ -28,7 +29,7 @@ export default {
 
   data() {
     return {
-      selectedEcosystem: ecosystems.coralReefEcosystem,
+      selectedEcosystem: ecosystems['coral-reef'],
       selectedOrganism: null
     };
   },

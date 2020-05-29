@@ -26,7 +26,7 @@ export default {
 
   props: {
     selectedEcosystem: {
-      type: Function,
+      type: Object,
       required: false
     }
   },
@@ -52,10 +52,10 @@ export default {
 
   watch: {
     selectedEcosystem: {
-      // TODO: Remove later on
       immediate: true,
-      handler(NewEcosystem) {
-        this.initEcosystem(NewEcosystem);
+      handler(ecosystem) {
+        // TODO: Check for null ecosystem
+        this.initEcosystem(ecosystem.class);
       }
     }
   },

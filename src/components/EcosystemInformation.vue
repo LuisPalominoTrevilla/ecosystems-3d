@@ -1,25 +1,21 @@
 <template>
   <div class="container">
-    <h1 class="title">Ocean Ecosystem - Coral Reef</h1>
-    <p>
-      Coral reefs are warm, clear, shallow ocean habitats that are rich in life.
-      The coral provides shelter for many animals in this complex habitat,
-      including sponges, nudibranchs, fish, jellyfish, anemones, sea stars and
-      mollusks.
-    </p>
-    <p>
-      Coral reefs develop in shallow, warm water, usually near land, and mostly
-      in the tropics. The Great Barrier Reef (off the coast of NE Australia) is
-      the largest coral reef in the world.
-    </p>
-    <div class="button-container">
-      <button>Go Back</button>
+    <div v-if="shouldShowEcosystem">
+      <h1 class="title">{{ selectedEcosystem.name }}</h1>
+      <p v-for="(p, i) in selectedEcosystem.description" :key="i">
+        {{ p }}
+      </p>
+      <div class="button-container">
+        <button>Go Back</button>
+      </div>
     </div>
     <div v-if="shouldShowOrganism" class="organism-info">
       <div class="top">
         <img
           class="organism-image"
-          :src="require(`@/assets/coral-reef/${selectedOrganism.image}`)"
+          :src="
+            require(`@/assets/${selectedEcosystem.id}/${selectedOrganism.image}`)
+          "
           :alt="`${selectedOrganism.name} image`"
         />
         <div>
@@ -39,6 +35,10 @@ export default {
   name: 'EcosystemInformation',
 
   props: {
+    selectedEcosystem: {
+      type: Object,
+      default: null
+    },
     selectedOrganism: {
       type: Object,
       default: null
@@ -48,6 +48,10 @@ export default {
   computed: {
     shouldShowOrganism() {
       return this.selectedOrganism !== null;
+    },
+
+    shouldShowEcosystem() {
+      return this.selectedEcosystem !== null;
     }
   }
 };
