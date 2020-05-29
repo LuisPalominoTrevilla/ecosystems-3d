@@ -15,30 +15,42 @@
     <div class="button-container">
       <button>Go Back</button>
     </div>
-    <div class="item-info">
+    <div v-if="shouldShowOrganism" class="organism-info">
       <div class="top">
         <img
-          class="item-image"
+          class="organism-image"
           src="https://cdn.powered-by-nitrosell.com/product_images/11/2575/large-common%20clown.jpg"
-          alt="clown-fish image"
+          :alt="`${selectedOrganism.name} image`"
         />
         <div>
-          <h2>Clown Fish</h2>
-          <p class="scientific-name">Amphiprioninae</p>
+          <h2>{{ selectedOrganism.name }}</h2>
+          <p class="scientific-name">{{ selectedOrganism.scientificName }}</p>
         </div>
       </div>
-      <p class="item-description">
-        Clown fish are small fish that live among anemone. Scientists think that
-        the Clown fish may be coated with a mucous that protects it from the
-        poison. The clown fish helps the anemone by cleaning it and perhaps by
-        scaring away predators of the anemone.
+      <p class="organism-description">
+        {{ selectedOrganism.description }}
       </p>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'EcosystemInformation',
+
+  props: {
+    selectedOrganism: {
+      type: Object,
+      default: null
+    }
+  },
+
+  computed: {
+    shouldShowOrganism() {
+      return this.selectedOrganism !== null;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -48,7 +60,7 @@ export default {};
   padding: 3rem 2rem;
   overflow-y: scroll;
 
-  .item-info {
+  .organism-info {
     padding: 2rem;
     border: 1px solid #444444;
 
@@ -61,7 +73,7 @@ export default {};
       }
     }
 
-    .item-image {
+    .organism-image {
       width: 12rem;
       border-radius: 12px;
     }
@@ -70,7 +82,7 @@ export default {};
       font-style: italic;
     }
 
-    .item-description {
+    .organism-description {
       margin-top: 2rem;
     }
   }

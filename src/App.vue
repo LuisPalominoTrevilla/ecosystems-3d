@@ -3,8 +3,12 @@
     <interactive-screen
       :selected-ecosystem="selectedEcosystem"
       class="interactive-screen"
+      @select-organism="selectOrganism"
     />
-    <ecosystem-information class="ecosystem-information" />
+    <ecosystem-information
+      :selected-organism="selectedOrganism"
+      class="ecosystem-information"
+    />
   </div>
 </template>
 
@@ -12,6 +16,7 @@
 import InteractiveScreen from './components/InteractiveScreen';
 import EcosystemInformation from './components/EcosystemInformation';
 import ecosystems from './ecosystems';
+import Constants from './constants';
 
 export default {
   name: 'App',
@@ -23,8 +28,16 @@ export default {
 
   data() {
     return {
-      selectedEcosystem: ecosystems.coralReefEcosystem
+      selectedEcosystem: ecosystems.coralReefEcosystem,
+      selectedOrganism: null
     };
+  },
+
+  methods: {
+    selectOrganism(organismName) {
+      this.selectedOrganism =
+        Constants.floraFaunaInformation[organismName] ?? null;
+    }
   }
 };
 </script>

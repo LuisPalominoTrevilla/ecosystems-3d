@@ -181,6 +181,7 @@ export default {
           object = object.parent;
         }
         if (object instanceof Model) {
+          this.$emit('select-organism', object.name);
           this.tweenCam(object.position, object.spectatorPosition, 2000);
         }
       }
