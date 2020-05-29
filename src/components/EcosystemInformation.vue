@@ -19,7 +19,7 @@
       <div class="top">
         <img
           class="organism-image"
-          src="https://cdn.powered-by-nitrosell.com/product_images/11/2575/large-common%20clown.jpg"
+          :src="require(`@/assets/coral-reef/${selectedOrganism.image}`)"
           :alt="`${selectedOrganism.name} image`"
         />
         <div>
