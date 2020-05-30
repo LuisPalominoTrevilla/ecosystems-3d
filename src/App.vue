@@ -3,6 +3,7 @@
     <interactive-screen
       :selected-ecosystem="selectedEcosystem"
       class="interactive-screen"
+      @select-ecosystem="selectEcosystem"
       @select-organism="selectOrganism"
     />
     <ecosystem-information
@@ -16,7 +17,7 @@
 <script>
 import InteractiveScreen from './components/InteractiveScreen';
 import EcosystemInformation from './components/EcosystemInformation';
-//import ecosystems from './ecosystems';
+import ecosystems from './ecosystems';
 import Organisms from './organisms';
 
 export default {
@@ -35,6 +36,9 @@ export default {
   },
 
   methods: {
+    selectEcosystem(ecosystemName) {
+      this.selectedEcosystem = ecosystems[ecosystemName];
+    },
     selectOrganism(organismName) {
       this.selectedOrganism =
         Organisms[this.selectedEcosystem.id][organismName] ?? null;

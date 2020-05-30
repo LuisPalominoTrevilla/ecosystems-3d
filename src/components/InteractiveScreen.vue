@@ -37,6 +37,7 @@ export default {
   data() {
     return {
       camera: null,
+      initialCameraPosition: [0, 8, 15],
       orbitControls: null,
       ecosystem: null,
       menu: null,
@@ -57,6 +58,8 @@ export default {
       handler(ecosystem) {
         this.createLoaderInstance();
         this.loading = true;
+        if (this.camera)
+          this.camera.position.set(...this.initialCameraPosition);
         if (ecosystem === null) {
           this.initMenuScreen();
         } else {
@@ -87,8 +90,7 @@ export default {
         0.01,
         100
       );
-      this.camera.position.z = 15;
-      this.camera.position.y = 8;
+      this.camera.position.set(...this.initialCameraPosition);
       this.raycaster = new Raycaster();
 
       this.renderer = new WebGLRenderer({ antialias: true });
@@ -127,17 +129,17 @@ export default {
 
     initEcosystem(Ecosystem) {
       // TODO: Dispose other scene and start loading
+      this.menu = null;
       this.ecosystem = new Ecosystem(this.loadingManager);
     },
 
     initMenuScreen() {
-      // TODO: Set loading?
+      this.ecosystem = null;
       this.menu = new MenuScreen(this.loadingManager);
     },
 
     animate() {
       if (this.ecosystem) {
-        this.ecosystem.animate();
         TWEEN.update();
         this.orbitControls.update();
         this.renderer.render(this.ecosystem, this.camera);
@@ -219,7 +221,7 @@ export default {
           intersect.object instanceof InvisibleModel &&
           intersect.distance < distanceToCenter
         ) {
-          console.log('Found invisible model!', intersect.object.name);
+          this.$emit('select-ecosystem', intersect.object.name);
           break;
         }
       }
