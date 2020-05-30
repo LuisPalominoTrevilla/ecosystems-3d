@@ -40,7 +40,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(fennec);
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -58,7 +58,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(bush);
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -77,7 +77,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(python);
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -95,7 +95,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(cactus);
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -114,7 +114,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(cactus);
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -135,7 +135,7 @@ class DesertEcosystem extends BaseEcosystem {
         });
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -155,7 +155,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(skeleton);
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -181,7 +181,7 @@ class DesertEcosystem extends BaseEcosystem {
         });
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -199,7 +199,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(rock);
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -217,7 +217,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(eagle);
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -236,7 +236,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(camel);
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -255,7 +255,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(scorpion);
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
@@ -274,7 +274,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(antelope);
       },
       undefined,
-      function (error) {
+      function(error) {
         console.error(error);
       }
     );
