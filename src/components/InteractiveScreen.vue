@@ -39,10 +39,7 @@ export default {
       renderer: null,
       raycaster: null,
       container: null,
-      loadingManager: new LoadingManager(() => {
-        this.loading = false;
-        this.animate();
-      }),
+      loadingManager: null,
       isTweening: false,
       isMouseDown: false,
       isMouseDrag: false,
@@ -55,6 +52,7 @@ export default {
       immediate: true,
       handler(ecosystem) {
         // TODO: Check for null ecosystem
+        this.createLoaderInstance();
         this.initEcosystem(ecosystem.class);
       }
     }
@@ -161,6 +159,14 @@ export default {
       this.orbitControls.enableRotate = enable;
       this.orbitControls.enablePan = enable;
       this.isTweening = !enable;
+    },
+
+    createLoaderInstance() {
+      if (this.loadingManager) return;
+      this.loadingManager = new LoadingManager(() => {
+        this.loading = false;
+        this.animate();
+      });
     },
 
     onMouseClick(event) {
