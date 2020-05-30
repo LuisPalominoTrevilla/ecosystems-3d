@@ -54,6 +54,7 @@ export default {
       immediate: true,
       handler(ecosystem) {
         this.createLoaderInstance();
+        this.loading = true;
         if (ecosystem === null) {
           this.initMenuScreen();
         } else {
@@ -117,14 +118,13 @@ export default {
     },
 
     initEcosystem(Ecosystem) {
-      this.loading = true;
       // TODO: Dispose other scene and start loading
       this.ecosystem = new Ecosystem(this.loadingManager);
     },
 
     initMenuScreen() {
       // TODO: Set loading?
-      this.menu = new MenuScreen();
+      this.menu = new MenuScreen(this.loadingManager);
     },
 
     animate() {

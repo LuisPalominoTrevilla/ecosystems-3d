@@ -2,12 +2,12 @@ import { Scene, AmbientLight, TextureLoader } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 class MenuScreen extends Scene {
-  constructor() {
+  constructor(loadingManager) {
     super();
 
-    const gltfLoader = new GLTFLoader();
+    const gltfLoader = new GLTFLoader(loadingManager);
 
-    new TextureLoader().load(
+    new TextureLoader(loadingManager).load(
       'assets/backgrounds/space-bg.jpg',
       texture => {
         this.background = texture;
