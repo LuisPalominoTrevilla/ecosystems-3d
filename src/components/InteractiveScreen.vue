@@ -1,37 +1,65 @@
 <template>
-  <div id="container" ref="container"></div>
+  <div ref="container">
+    <loading-screen :loading="loading" />
+  </div>
 </template>
 
 <script>
-import { PerspectiveCamera, WebGLRenderer, Raycaster } from 'three';
+import {
+  PerspectiveCamera,
+  WebGLRenderer,
+  Raycaster,
+  LoadingManager
+} from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import TWEEN from '@tweenjs/tween.js';
-import ecosystems from '../ecosystems';
 import BaseEcosystem from '../ecosystems/base-ecosystem';
 import Model from '../models/model';
+import LoadingScreen from './LoadingScreen';
 
 export default {
-  name: 'PaintCanvas',
+  name: 'InteractiveScreen',
+
+  components: {
+    LoadingScreen
+  },
+
+  props: {
+    selectedEcosystem: {
+      type: Object,
+      required: false
+    }
+  },
 
   data() {
     return {
       camera: null,
       orbitControls: null,
-      ecosystems: [],
-      selectedEcosystem: 0,
+      ecosystem: null,
       renderer: null,
       raycaster: null,
       container: null,
-      mesh: null,
+      loadingManager: null,
       isTweening: false,
       isMouseDown: false,
-      isMouseDrag: false
+      isMouseDrag: false,
+      loading: false
     };
+  },
+
+  watch: {
+    selectedEcosystem: {
+      immediate: true,
+      handler(ecosystem) {
+        // TODO: Check for null ecosystem
+        this.createLoaderInstance();
+        this.initEcosystem(ecosystem.class);
+      }
+    }
   },
 
   mounted() {
     this.init();
-    this.animate();
   },
 
   methods: {
@@ -47,9 +75,6 @@ export default {
       this.camera.position.z = 15;
       this.camera.position.y = 8;
       this.raycaster = new Raycaster();
-
-      //this.ecosystems.push(ecosystems.testEcosystem);
-      this.ecosystems.push(ecosystems.jungleEcosystem);
 
       this.renderer = new WebGLRenderer({ antialias: true });
       this.renderer.setSize(
@@ -85,13 +110,18 @@ export default {
       );
     },
 
+    initEcosystem(Ecosystem) {
+      this.loading = true;
+      // TODO: Dispose other scene and start loading
+      this.ecosystem = new Ecosystem(this.loadingManager);
+    },
+
     animate() {
-      requestAnimationFrame(this.animate);
-      const selectedEcosystem = this.ecosystems[this.selectedEcosystem];
-      selectedEcosystem.animate();
-      this.renderer.render(selectedEcosystem, this.camera);
+      this.ecosystem.animate();
+      this.renderer.render(this.ecosystem, this.camera);
       TWEEN.update();
       this.orbitControls.update();
+      requestAnimationFrame(this.animate);
     },
 
     async tweenCam(target, position, tweenDuration) {
@@ -131,6 +161,14 @@ export default {
       this.isTweening = !enable;
     },
 
+    createLoaderInstance() {
+      if (this.loadingManager) return;
+      this.loadingManager = new LoadingManager(() => {
+        this.loading = false;
+        this.animate();
+      });
+    },
+
     onMouseClick(event) {
       if (this.isTweening) return;
       const rect = event.target.getBoundingClientRect();
@@ -140,7 +178,7 @@ export default {
       };
       this.raycaster.setFromCamera(mouse3D, this.camera);
       const intersects = this.raycaster.intersectObjects(
-        this.ecosystems[this.selectedEcosystem].children,
+        this.ecosystem.children,
         true
       );
       if (intersects.length > 0) {
@@ -149,6 +187,7 @@ export default {
           object = object.parent;
         }
         if (object instanceof Model) {
+          this.$emit('select-organism', object.name);
           this.tweenCam(object.position, object.spectatorPosition, 2000);
         }
       }
@@ -156,10 +195,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-#container {
-  width: 700px;
-  height: 600px;
-}
-</style>

@@ -4,8 +4,8 @@ import Model from '../models/model';
 import BaseEcosystem from './base-ecosystem';
 
 class CoralReefEcosystem extends BaseEcosystem {
-  constructor() {
-    super();
+  constructor(loadingManager) {
+    super(loadingManager);
 
     this.add(
       new Scenography({
@@ -85,9 +85,13 @@ class CoralReefEcosystem extends BaseEcosystem {
           [10, 0, 9]
         ];
         coralPositions.forEach(coralPosition => {
-          const coral = gltf.scene.clone();
-          coral.scale.set(0.2, 0.2, 0.2);
           const [x, y, z] = coralPosition;
+          const coral = new Model({
+            mesh: gltf.scene.clone(),
+            name: 'coral-polyp',
+            spectatorPosition: new Vector3(x, y + 2, z + 2)
+          });
+          coral.scale.set(0.2, 0.2, 0.2);
           coral.position.set(x, y, z);
           this.add(coral);
         });
@@ -111,9 +115,13 @@ class CoralReefEcosystem extends BaseEcosystem {
           [-2, 0, 11]
         ];
         purpleCoralPositions.forEach(purpleColarPosition => {
-          const purpleColar = gltf.scene.clone();
-          purpleColar.scale.set(0.2, 0.2, 0.2);
           const [x, y, z] = purpleColarPosition;
+          const purpleColar = new Model({
+            mesh: gltf.scene.clone(),
+            name: 'sponge',
+            spectatorPosition: new Vector3(x, y + 2, z + 2)
+          });
+          purpleColar.scale.set(0.2, 0.2, 0.2);
           purpleColar.position.set(x, y, z);
           this.add(purpleColar);
         });
@@ -219,7 +227,7 @@ class CoralReefEcosystem extends BaseEcosystem {
       gltf => {
         const crab = new Model({
           mesh: gltf.scene,
-          name: 'fiddler-crab',
+          name: 'crab',
           spectatorPosition: new Vector3(7, 1.5, 1)
         });
         crab.scale.set(2, 2, 2);
@@ -255,7 +263,7 @@ class CoralReefEcosystem extends BaseEcosystem {
       gltf => {
         const childTurtle = new Model({
           mesh: gltf.scene.clone(),
-          name: 'sea-turtle-child',
+          name: 'sea-turtle',
           spectatorPosition: new Vector3(-7, 6, 7)
         });
         childTurtle.position.set(-8, 6, 6);
