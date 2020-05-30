@@ -25,11 +25,11 @@ export default {
   height: 100%;
   background-color: #000000;
   opacity: 1;
-  transition: 1s opacity;
 }
 
 #loading-screen.fade-out {
   opacity: 0;
+  transition: 1s opacity;
   pointer-events: none;
 }
 
