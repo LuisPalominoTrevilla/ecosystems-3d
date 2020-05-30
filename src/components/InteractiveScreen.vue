@@ -57,15 +57,7 @@ export default {
       immediate: true,
       handler(ecosystem) {
         this.createLoaderInstance();
-        this.loading = true;
-        if (this.camera)
-          this.camera.position.set(...this.initialCameraPosition);
-        if (this.orbitControls) this.orbitControls.target.set(0, 0, 0);
-        if (ecosystem === null) {
-          this.initMenuScreen();
-        } else {
-          this.initEcosystem(ecosystem.class);
-        }
+        this._loadNewScene(ecosystem);
       }
     }
   },
@@ -82,6 +74,22 @@ export default {
   },
 
   methods: {
+    _loadNewScene(ecosystem) {
+      this.loading = true;
+      TWEEN.removeAll();
+
+      if (this.camera) this.camera.position.set(...this.initialCameraPosition);
+      if (this.orbitControls) {
+        this.toggleOrbitControls(true);
+        this.orbitControls.target.set(0, 0, 0);
+      }
+      if (ecosystem === null) {
+        this.initMenuScreen();
+      } else {
+        this.initEcosystem(ecosystem.class);
+      }
+    },
+
     init() {
       this.container = this.$refs.container;
 
