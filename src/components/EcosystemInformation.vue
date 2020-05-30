@@ -6,7 +6,7 @@
         {{ paragraph }}
       </p>
       <div class="button-container">
-        <button>Go Back</button>
+        <button @click="$emit('go-back')">Go Back</button>
       </div>
     </div>
     <div v-if="shouldShowOrganism" class="organism-info">

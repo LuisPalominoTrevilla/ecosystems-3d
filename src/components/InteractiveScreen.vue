@@ -60,6 +60,7 @@ export default {
         this.loading = true;
         if (this.camera)
           this.camera.position.set(...this.initialCameraPosition);
+        if (this.orbitControls) this.orbitControls.target.set(0, 0, 0);
         if (ecosystem === null) {
           this.initMenuScreen();
         } else {
@@ -119,7 +120,7 @@ export default {
       this.container.addEventListener(
         'mouseup',
         evt => {
-          if (!this.isMouseDrag) this.onMouseClick(evt);
+          if (!this.isMouseDrag || this.isInMenuScreen) this.onMouseClick(evt);
           this.isMouseDown = false;
           this.isMouseDrag = false;
         },
@@ -128,7 +129,6 @@ export default {
     },
 
     initEcosystem(Ecosystem) {
-      // TODO: Dispose other scene and start loading
       this.menu = null;
       this.ecosystem = new Ecosystem(this.loadingManager);
     },
@@ -144,6 +144,7 @@ export default {
         this.orbitControls.update();
         this.renderer.render(this.ecosystem, this.camera);
       } else if (this.menu) {
+        this.orbitControls.update();
         this.renderer.render(this.menu, this.camera);
         this.menu.animate();
       }

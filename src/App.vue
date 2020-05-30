@@ -10,6 +10,7 @@
       :selected-ecosystem="selectedEcosystem"
       :selected-organism="selectedOrganism"
       class="ecosystem-information"
+      @go-back="exitEcosystem"
     />
   </div>
 </template>
@@ -39,9 +40,15 @@ export default {
     selectEcosystem(ecosystemName) {
       this.selectedEcosystem = ecosystems[ecosystemName];
     },
+
     selectOrganism(organismName) {
       this.selectedOrganism =
         Organisms[this.selectedEcosystem.id][organismName] ?? null;
+    },
+
+    exitEcosystem() {
+      this.selectedEcosystem = null;
+      this.selectedOrganism = null;
     }
   }
 };
