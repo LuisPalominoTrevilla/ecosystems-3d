@@ -16,7 +16,7 @@
 <script>
 import InteractiveScreen from './components/InteractiveScreen';
 import EcosystemInformation from './components/EcosystemInformation';
-import ecosystems from './ecosystems';
+//import ecosystems from './ecosystems';
 import Organisms from './organisms';
 
 export default {
@@ -29,7 +29,7 @@ export default {
 
   data() {
     return {
-      selectedEcosystem: ecosystems['coral-reef'],
+      selectedEcosystem: null,
       selectedOrganism: null
     };
   },

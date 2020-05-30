@@ -16,6 +16,7 @@ import TWEEN from '@tweenjs/tween.js';
 import BaseEcosystem from '../ecosystems/base-ecosystem';
 import Model from '../models/model';
 import LoadingScreen from './LoadingScreen';
+import MenuScreen from '../models/menu-screen';
 
 export default {
   name: 'InteractiveScreen',
@@ -36,6 +37,7 @@ export default {
       camera: null,
       orbitControls: null,
       ecosystem: null,
+      menu: null,
       renderer: null,
       raycaster: null,
       container: null,
@@ -51,15 +53,19 @@ export default {
     selectedEcosystem: {
       immediate: true,
       handler(ecosystem) {
-        // TODO: Check for null ecosystem
         this.createLoaderInstance();
-        this.initEcosystem(ecosystem.class);
+        if (ecosystem === null) {
+          this.initMenuScreen();
+        } else {
+          this.initEcosystem(ecosystem.class);
+        }
       }
     }
   },
 
   mounted() {
     this.init();
+    this.animate();
   },
 
   methods: {
@@ -116,11 +122,21 @@ export default {
       this.ecosystem = new Ecosystem(this.loadingManager);
     },
 
+    initMenuScreen() {
+      // TODO: Set loading?
+      this.menu = new MenuScreen();
+    },
+
     animate() {
-      this.ecosystem.animate();
-      this.renderer.render(this.ecosystem, this.camera);
-      TWEEN.update();
-      this.orbitControls.update();
+      if (this.ecosystem) {
+        this.ecosystem.animate();
+        TWEEN.update();
+        this.orbitControls.update();
+        this.renderer.render(this.ecosystem, this.camera);
+      } else if (this.menu) {
+        this.renderer.render(this.menu, this.camera);
+        this.menu.animate();
+      }
       requestAnimationFrame(this.animate);
     },
 
@@ -165,7 +181,6 @@ export default {
       if (this.loadingManager) return;
       this.loadingManager = new LoadingManager(() => {
         this.loading = false;
-        this.animate();
       });
     },
 

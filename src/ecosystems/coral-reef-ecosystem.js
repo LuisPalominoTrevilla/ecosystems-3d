@@ -303,8 +303,6 @@ class CoralReefEcosystem extends BaseEcosystem {
       }
     );
   }
-
-  animate() {}
 }
 
 export default CoralReefEcosystem;
