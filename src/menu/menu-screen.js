@@ -1,5 +1,6 @@
 import { Scene, AmbientLight, TextureLoader } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import availableEcosystems from './available-ecosystems';
 
 class MenuScreen extends Scene {
   constructor(loadingManager) {
@@ -18,8 +19,12 @@ class MenuScreen extends Scene {
       }
     );
 
-    const light = new AmbientLight();
+    const light = new AmbientLight(0xffffff, 0.6);
     this.add(light);
+    availableEcosystems.forEach(({ spotLight, rect }) => {
+      this.add(spotLight);
+      this.add(rect);
+    });
 
     gltfLoader.load(
       'assets/cute-planet/scene.gltf',
@@ -36,9 +41,7 @@ class MenuScreen extends Scene {
   }
 
   animate() {
-    if (this.planet) {
-      this.planet.rotation.y += 0.005;
-    }
+    //this.rotation.y += 0.005;
   }
 }
 

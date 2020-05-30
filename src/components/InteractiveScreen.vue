@@ -9,14 +9,16 @@ import {
   PerspectiveCamera,
   WebGLRenderer,
   Raycaster,
-  LoadingManager
+  LoadingManager,
+  Vector3
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import TWEEN from '@tweenjs/tween.js';
 import BaseEcosystem from '../ecosystems/base-ecosystem';
 import Model from '../models/model';
 import LoadingScreen from './LoadingScreen';
-import MenuScreen from '../models/menu-screen';
+import MenuScreen from '../menu/menu-screen';
+import InvisibleModel from '../models/invisible-model';
 
 export default {
   name: 'InteractiveScreen',
@@ -67,6 +69,12 @@ export default {
   mounted() {
     this.init();
     this.animate();
+  },
+
+  computed: {
+    isInMenuScreen() {
+      return this.menu !== null;
+    }
   },
 
   methods: {
@@ -185,6 +193,39 @@ export default {
     },
 
     onMouseClick(event) {
+      if (this.isInMenuScreen) {
+        this._menuOnClick(event);
+      } else {
+        this._ecosystemOnClick(event);
+      }
+    },
+
+    _menuOnClick(event) {
+      const rect = event.target.getBoundingClientRect();
+      const mouse3D = {
+        x: (2 * (event.clientX - rect.left)) / this.container.clientWidth - 1,
+        y: (2 * (rect.top - event.clientY)) / this.container.clientHeight + 1
+      };
+      this.raycaster.setFromCamera(mouse3D, this.camera);
+      const intersects = this.raycaster.intersectObjects(
+        this.menu.children,
+        true
+      );
+      const distanceToCenter = this.camera.position.distanceTo(
+        new Vector3(0, 0, 0)
+      );
+      for (let intersect of intersects) {
+        if (
+          intersect.object instanceof InvisibleModel &&
+          intersect.distance < distanceToCenter
+        ) {
+          console.log('Found invisible model!', intersect.object.name);
+          break;
+        }
+      }
+    },
+
+    _ecosystemOnClick(event) {
       if (this.isTweening) return;
       const rect = event.target.getBoundingClientRect();
       const mouse3D = {
