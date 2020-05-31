@@ -5,9 +5,18 @@
       <p v-for="(paragraph, i) in selectedEcosystem.description" :key="i">
         {{ paragraph }}
       </p>
+      <p>
+        Click on any living organism to find out more about it!
+      </p>
       <div class="button-container">
         <button @click="$emit('go-back')">Go Back</button>
       </div>
+    </div>
+    <div v-else>
+      <h1 class="title">Ecosystems 3D</h1>
+      <p>
+        Click on an available ecosystem in the map to know more about it!
+      </p>
     </div>
     <div v-if="shouldShowOrganism" class="organism-info">
       <div class="top">

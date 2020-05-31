@@ -262,3 +262,9 @@ export default {
   }
 };
 </script>
+
+<style>
+canvas {
+  outline: none;
+}
+</style>
