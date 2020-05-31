@@ -1,5 +1,6 @@
 import CoralReefEcosystem from './coral-reef-ecosystem';
 import DesertEcosystem from './desert-ecosystem';
+import PolarEcosystem from './polar-ecosystem';
 export default {
   'coral-reef': {
     name: 'Ocean Ecosystem - Coral Reef',
@@ -17,6 +18,15 @@ export default {
     description: [
       'Deserts are arid regions which are generally associated with warm temperatures, however cold deserts also exist.',
       'Deserts can be found in every continent, with the largest deserts located in Antarctica, the Arctic, Northern Africa, and the Middle East.'
+    ]
+  },
+  polar: {
+    name: 'Tundra - Polar Ecosystem ',
+    id: 'polar',
+    class: PolarEcosystem,
+    description: [
+      'Tundra is the coldest of all the biomes.',
+      'It is noted for its frost-molded landscapes, extremely low temperatures, little precipitation, poor nutrients, and short growing seasons. Dead organic material functions as a nutrient pool. The two major nutrients are nitrogen and phosphorus.'
     ]
   }
 };
