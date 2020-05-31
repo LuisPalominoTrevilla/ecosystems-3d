@@ -1,5 +1,6 @@
 import { Scene, AmbientLight, DirectionalLight } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import { Howl } from 'howler';
 
 class BaseEcosystem extends Scene {
@@ -19,6 +20,7 @@ class BaseEcosystem extends Scene {
     this.add(dirLight);
 
     this.gltfLoader = new GLTFLoader(loadingManager);
+    this.fbxLoader = new FBXLoader(loadingManager);
   }
 
   playAudio() {
