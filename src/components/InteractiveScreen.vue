@@ -4,7 +4,9 @@
     <loading-screen :loading="loading" />
     <hud-controls
       v-show="!isInMenuScreen"
+      :play-audio="playAudio"
       :disable-camera-reset="isTweening"
+      @toggle-audio="toggleAudio"
       @reset-camera-position="resetCameraPosition"
     />
   </div>
@@ -56,7 +58,8 @@ export default {
       isTweening: false,
       isMouseDown: false,
       isMouseDrag: false,
-      loading: false
+      loading: false,
+      playAudio: false
     };
   },
 
@@ -64,7 +67,7 @@ export default {
     selectedEcosystem: {
       immediate: true,
       handler(ecosystem) {
-        this.createLoaderInstance();
+        this._createLoaderInstance();
         this._loadNewScene(ecosystem);
       }
     }
@@ -84,6 +87,7 @@ export default {
   methods: {
     _loadNewScene(ecosystem) {
       this.loading = true;
+      this.toggleAudio(false);
       TWEEN.removeAll();
 
       if (this.camera) this.camera.position.set(...this.initialCameraPosition);
@@ -204,7 +208,7 @@ export default {
       this.isTweening = !enable;
     },
 
-    createLoaderInstance() {
+    _createLoaderInstance() {
       if (this.loadingManager) return;
       this.loadingManager = new LoadingManager(() => {
         this.loading = false;
@@ -273,6 +277,17 @@ export default {
       const target = new Vector3(0, 0, 0);
       this.$emit('deselect-organism');
       this.tweenCam(target, position, 1600);
+    },
+
+    toggleAudio(play) {
+      if (!this.ecosystem) return;
+      if (play) {
+        this.playAudio = true;
+        this.ecosystem.playAudio();
+      } else {
+        this.playAudio = false;
+        this.ecosystem.stopAudio();
+      }
     }
   }
 };

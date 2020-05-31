@@ -5,7 +5,7 @@ import BaseEcosystem from './base-ecosystem';
 
 class CoralReefEcosystem extends BaseEcosystem {
   constructor(loadingManager) {
-    super(loadingManager);
+    super(loadingManager, 'assets/audio/underwater.mp3');
 
     this.add(
       new Scenography({

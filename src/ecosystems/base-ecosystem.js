@@ -1,11 +1,17 @@
 import { Scene, AmbientLight, DirectionalLight } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { Howl } from 'howler';
 
 class BaseEcosystem extends Scene {
-  constructor(loadingManager) {
+  constructor(loadingManager, environmentAudio) {
     if (!loadingManager)
       return console.error('Required loading manager missing');
     super();
+
+    this.ambientSound = new Howl({
+      src: [environmentAudio],
+      loop: true
+    });
 
     const light = new AmbientLight();
     const dirLight = new DirectionalLight();
@@ -13,6 +19,14 @@ class BaseEcosystem extends Scene {
     this.add(dirLight);
 
     this.gltgLoader = new GLTFLoader(loadingManager);
+  }
+
+  playAudio() {
+    this.ambientSound.play();
+  }
+
+  stopAudio() {
+    this.ambientSound.stop();
   }
 }
 

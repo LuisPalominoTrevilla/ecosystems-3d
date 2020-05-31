@@ -1,6 +1,11 @@
 <template>
   <div class="controls">
     <font-awesome-icon
+      @click="$emit('toggle-audio', !playAudio)"
+      :icon="playAudio ? 'volume-up' : 'volume-mute'"
+      class="controls-icon"
+    />
+    <font-awesome-icon
       @click="resetCameraPosition"
       icon="video"
       class="controls-icon"
@@ -14,6 +19,10 @@ export default {
 
   props: {
     disableCameraReset: {
+      type: Boolean,
+      required: true
+    },
+    playAudio: {
       type: Boolean,
       required: true
     }
@@ -44,10 +53,10 @@ export default {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding-right: 2rem;
 
   .controls-icon {
-    font-size: 4em;
+    font-size: 3em;
+    margin-right: 2rem;
     color: white;
     cursor: pointer;
   }
