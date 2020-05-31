@@ -3,6 +3,7 @@
     <div id="container" ref="container"></div>
     <loading-screen :loading="loading" />
     <hud-controls
+      v-show="!isInMenuScreen"
       :disable-camera-reset="isTweening"
       @reset-camera-position="resetCameraPosition"
     />
@@ -271,7 +272,7 @@ export default {
       const position = new Vector3(...this.initialCameraPosition);
       const target = new Vector3(0, 0, 0);
       this.$emit('deselect-organism');
-      this.tweenCam(target, position, 2000);
+      this.tweenCam(target, position, 1600);
     }
   }
 };
