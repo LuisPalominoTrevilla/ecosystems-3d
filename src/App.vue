@@ -29,7 +29,7 @@ export default {
 
   data() {
     return {
-      selectedEcosystem: ecosystems['coral-reef'],
+      selectedEcosystem: ecosystems['jungle'],
       selectedOrganism: null
     };
   },

@@ -2,21 +2,13 @@
 import Scenography from '../models/scenography';
 import Model from '../models/model';
 import BaseEcosystem from './base-ecosystem';
-//import {OBJLoader} from 'three/examples/jsm/loaders/OBJLoader';
-//import {MTLLoader} from 'three/examples/jsm/loaders/MTLLoader';
-import { Vector3 } from 'three';
-//import {FBXLoader} from 'three/examples/jsm/loaders/FBXLoader';
+import { Vector3, Color } from 'three';
+import { SkeletonUtils } from 'three/examples/jsm/utils/SkeletonUtils';
 
 class Jungle extends BaseEcosystem {
-    constructor() {
-        super();
-
+    constructor(loadingManager) {
+        super(loadingManager);
         this.meshes = [];
-        //const loader = new OBJLoader();
-        //const mtlLoader = new MTLLoader();
-        //const fbxLoader = new FBXLoader();
-
-
         this.add(
             new Scenography(
                 {
@@ -26,6 +18,8 @@ class Jungle extends BaseEcosystem {
                 }
             )
         );
+
+        this.background = new Color(0xFFFFFF);
 
         this.gltgLoader.load('assets/jungle/gorilla/scene.gltf',
             gltf => {
@@ -41,35 +35,21 @@ class Jungle extends BaseEcosystem {
             gltf => {
                 this.monkey = new Model({ mesh: gltf.scene, name: "monkey", spectatorPosition: new Vector3(-1.5, 4, 6) })
                 this.monkey.position.set(0.3, 0, 10);
-                this.monkey.scale.set(2, 2, 2);
+                this.monkey.scale.set(2, 1.98, 2);
                 this.monkey.rotation.y = this.monkey.rotation.y + 50 * Math.PI / 180
                 this.add(this.monkey);
             }
         );
 
-
-        this.gltgLoader.load('assets/jungle/zebra/scene.gltf',
-            gltf => {
-                this.zebra = new Model({ mesh: gltf.scene, name: "Zebra", spectatorPosition: new Vector3(-4, 6, 0) });
-                this.zebra.position.set(-3, 0, -8);
-                this.zebra.scale.set(0.2, 0.2, 0.2);
-                this.zebra.rotation.y = this.zebra.rotation.y + 20 * Math.PI / 180;
-                this.add(this.zebra);
-            }
-        );
-
-        /*
         this.gltgLoader.load('assets/jungle/tiger/scene.gltf',
             gltf => {
-                this.tiger = new Model({mesh: gltf.scene, name:"tiger", spectatorPosition: new Vector3(6,3,-1)})
-                
-                this.tiger.position.set(6,0,-3);
-                this.tiger.scale.set(0.15,0.15,0.15);
+                this.tiger = new Model({ mesh: gltf.scene, name: "tiger", spectatorPosition: new Vector3(-4, 3, 2) })
+
+                this.tiger.position.set(-3, 1.10, -3);
+                this.tiger.scale.set(0.15, 0.15, 0.15);
                 this.add(this.tiger);
-                console.log(this.tiger);
-                
             }
-        );*/
+        );
 
         this.gltgLoader.load('assets/jungle/parrot/scene.gltf',
             gltf => {
@@ -111,7 +91,7 @@ class Jungle extends BaseEcosystem {
 
         this.gltgLoader.load('assets/jungle/butterfly/scene.gltf',
             gltf => {
-                this.butterfly = new Model({ mesh: gltf.scene, name: "butterfly", spectatorPosition: new Vector3(-6, 1, -5) });
+                this.butterfly = new Model({ mesh: gltf.scene, name: "butterfly", spectatorPosition: new Vector3(-7.5, 6, 1.5) });
                 //this.butterfly.position.set(-7,4,-8);
                 this.butterfly.position.set(-7, 4, 0);
                 this.butterfly.rotation.y = this.butterfly.rotation.y + -20 * Math.PI / 180;
@@ -131,49 +111,25 @@ class Jungle extends BaseEcosystem {
             }
         )
 
-
         //Loading a tree
-        /*mtlLoader.load('assets/jungle/trees/CartoonTree.mtl',
-            materials => {
-                materials.preload();
-
-                loader.setMaterials(materials);
-                loader.load('assets/jungle/trees/CartoonTree.obj',
-                    obj => {
-                        obj.scale.set(2,2,2);
-                        obj.position.set(-8,-0.1,8);
-                        obj.children.shift();
-                        this.meshes.push(obj);
-                        //this.add(obj);
-                        for(var i =0; i<num_of_trees; i++){
-                            let clone_tree = obj.clone();
-                            clone_tree.position.set(positions[i][0], positions[i][1],positions[i][2]);
-                            this.meshes.push(clone_tree);
-                            this.add(clone_tree);
-                        }
-                    }
-                )
-            }
-        );*/
-
         this.gltgLoader.load('assets/jungle/trees/scene.gltf',
             gltf => {
                 const positions = [
-                    [-8, -0.1, -9,],
-                    [8, -0.1, -9],
+                    [-8, -0.3, -9,],
+                    [8, -0.3, -9],
                     //[-7,-0.1,0,],
-                    [0, -0.1, 0,],
-                    [9, -0.1, 8,],
+                    [0, -0.3, 0,],
+                    [9, -0.3, 8,],
                 ]
                 positions.forEach(treePosition => {
                     const [x, y, z] = treePosition;
                     const Tree_clone = new Model({
-                        mesh: gltf.scene.clone(),
+                        mesh: SkeletonUtils.clone(gltf.scene),
                         name: "tree",
                         spectatorPosition: new Vector3(x, y + 3, z + 3),
                     });
                     Tree_clone.position.set(x, y, z);
-                    //this.add(Tree_clone);
+                    this.add(Tree_clone);
                 })
             }
         );
@@ -181,7 +137,7 @@ class Jungle extends BaseEcosystem {
         //Loading banana tree
         this.gltgLoader.load('assets/jungle/flora/bananatree/scene.gltf',
             gltf => {
-                this.bananaTree = new Model({ mesh: gltf.scene, name: "bananatree", spectatorPosition: new Vector3(-9, 7, 14) });
+                this.bananaTree = new Model({ mesh: gltf.scene, name: "banana tree", spectatorPosition: new Vector3(-9, 7, 14) });
                 this.bananaTree.position.set(-5, -0.1, 8);
                 this.bananaTree.scale.set(0.04, 0.04, 0.04);
                 this.add(this.bananaTree);
@@ -191,15 +147,23 @@ class Jungle extends BaseEcosystem {
         //Loading orchideas
         this.gltgLoader.load('assets/jungle/flora/orchid/scene.gltf',
             gltf => {
-                this.orchid = new Model({ mesh: gltf.scene, name: "orchid", spectatorPosition: new Vector3(-4, 2, -4) });
-                this.orchid.position.set(-4, 0, -4);
+                this.orchid = new Model({ mesh: gltf.scene, name: "orchid", spectatorPosition: new Vector3(-6, 2, 0) });
+                this.orchid.position.set(-7.8, 0.2, -2.25);
                 this.orchid.scale.set(0.2, 0.2, 0.2);
-                //this.orchid.rotation.x = this.orchid.rotation.x + 90 * Math.PI/180;
+                this.orchid.rotation.x = this.orchid.rotation.x - 100 * Math.PI / 180;
+                this.orchid.rotation.z = this.orchid.rotation.z + 30 * Math.PI / 180;
                 this.add(this.orchid);
             }
         );
 
-
+        this.gltgLoader.load('assets/jungle/flora/grass/scene.gltf',
+            grassltf => {
+                let grass = grassltf.scene;
+                grass.position.set(-6, -3, -4);
+                grass.scale.set(0.3, 0.3, 0.3);
+                this.add(grass);
+            }
+        );
     }
 
     animate() {
