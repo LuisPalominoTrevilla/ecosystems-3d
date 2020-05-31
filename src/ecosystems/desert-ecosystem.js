@@ -23,7 +23,7 @@ class DesertEcosystem extends BaseEcosystem {
         const fennec = new Model({
           mesh: gltf.scene,
           name: 'fennec-fox',
-          spectatorPosition: new Vector3(0, 5, 0)
+          spectatorPosition: new Vector3(0.8, 3.48, 4.69)
         });
         fennec.scale.set(0.5, 0.5, 0.5);
         fennec.position.set(3, 0, 6);
@@ -61,7 +61,7 @@ class DesertEcosystem extends BaseEcosystem {
         const viper = new Model({
           mesh: gltf.scene,
           name: 'viper',
-          spectatorPosition: new Vector3(-3, 3, 3.8)
+          spectatorPosition: new Vector3(-8.16, 3.06, 2.03)
         });
         viper.scale.set(0.03, 0.03, 0.03);
         viper.rotation.y = Math.PI / 2;
@@ -202,7 +202,7 @@ class DesertEcosystem extends BaseEcosystem {
         const eagle = new Model({
           mesh: gltf.scene,
           name: 'eagle',
-          spectatorPosition: new Vector3(-6, 6, 6)
+          spectatorPosition: new Vector3(-4.54, 5.14, 4.4)
         });
         eagle.scale.set(0.3, 0.3, 0.3);
         eagle.position.set(-7, 3, 2);
@@ -220,7 +220,7 @@ class DesertEcosystem extends BaseEcosystem {
         const camel = new Model({
           mesh: gltf.scene,
           name: 'camel',
-          spectatorPosition: new Vector3(0, 6, 0)
+          spectatorPosition: new Vector3(1.73, 5.02, 1.13)
         });
         camel.position.set(8, 0, 2);
         camel.rotation.y = -Math.PI / 3;
@@ -239,7 +239,7 @@ class DesertEcosystem extends BaseEcosystem {
         const scorpion = new Model({
           mesh: fbx,
           name: 'scorpion',
-          spectatorPosition: new Vector3(0, 2, 2)
+          spectatorPosition: new Vector3(0.311, 0.92, 1.15)
         });
         scorpion.scale.set(0.1, 0.1, 0.1);
         scorpion.rotation.y = Math.PI / 2;
@@ -258,7 +258,7 @@ class DesertEcosystem extends BaseEcosystem {
         const antelope = new Model({
           mesh: gltf.scene,
           name: 'antelope',
-          spectatorPosition: new Vector3(2, 6, 7)
+          spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
         });
         antelope.scale.set(0.1, 0.1, 0.1);
         antelope.position.set(-2, 0, -9);
