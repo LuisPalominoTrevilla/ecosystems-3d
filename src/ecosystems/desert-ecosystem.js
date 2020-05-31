@@ -2,13 +2,10 @@ import { Vector3, Color } from 'three';
 import Scenography from '../models/scenography';
 import Model from '../models/model';
 import BaseEcosystem from './base-ecosystem';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 
 class DesertEcosystem extends BaseEcosystem {
   constructor(loadingManager) {
     super(loadingManager);
-
-    const fbxLoader = new FBXLoader(loadingManager);
 
     this.add(
       new Scenography({
@@ -77,7 +74,7 @@ class DesertEcosystem extends BaseEcosystem {
       }
     );
 
-    fbxLoader.load(
+    this.fbxLoader.load(
       'assets/desert/plants/CactusFlowers_3.fbx',
       fbx => {
         const cactus = new Model({
@@ -95,7 +92,7 @@ class DesertEcosystem extends BaseEcosystem {
       }
     );
 
-    fbxLoader.load(
+    this.fbxLoader.load(
       'assets/desert/plants/Cactus_4.fbx',
       fbx => {
         const opuntia = new Model({
@@ -114,7 +111,7 @@ class DesertEcosystem extends BaseEcosystem {
       }
     );
 
-    fbxLoader.load(
+    this.fbxLoader.load(
       'assets/desert/plants/CommonTree_Dead_1.fbx',
       fbx => {
         fbx.scale.set(0.06, 0.06, 0.06);
@@ -135,7 +132,7 @@ class DesertEcosystem extends BaseEcosystem {
       }
     );
 
-    fbxLoader.load(
+    this.fbxLoader.load(
       'assets/desert/skull/Skeleton.fbx',
       fbx => {
         const skeleton = new Model({
@@ -155,7 +152,7 @@ class DesertEcosystem extends BaseEcosystem {
       }
     );
 
-    fbxLoader.load(
+    this.fbxLoader.load(
       'assets/desert/plants/Plant_2.fbx',
       fbx => {
         fbx.scale.set(0.01, 0.01, 0.01);
@@ -236,7 +233,7 @@ class DesertEcosystem extends BaseEcosystem {
       }
     );
 
-    fbxLoader.load(
+    this.fbxLoader.load(
       'assets/desert/scorpion/scorpion.fbx',
       fbx => {
         const scorpion = new Model({
@@ -274,7 +271,7 @@ class DesertEcosystem extends BaseEcosystem {
       }
     );
 
-    fbxLoader.load(
+    this.fbxLoader.load(
       'assets/desert/plants/verbena.fbx',
       fbx => {
         fbx.scale.set(0.02, 0.02, 0.02);

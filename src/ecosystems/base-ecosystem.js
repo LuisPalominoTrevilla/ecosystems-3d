@@ -1,5 +1,6 @@
 import { Scene, AmbientLight, DirectionalLight } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 
 class BaseEcosystem extends Scene {
   constructor(loadingManager) {
@@ -13,6 +14,7 @@ class BaseEcosystem extends Scene {
     this.add(dirLight);
 
     this.gltgLoader = new GLTFLoader(loadingManager);
+    this.fbxLoader = new FBXLoader(loadingManager);
   }
 }
 
