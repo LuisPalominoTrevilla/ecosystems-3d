@@ -1,17 +1,44 @@
 <template>
   <div id="app">
-    <paint-canvas class="paint-canvas" />
-    <div class="ui-controls"><p>Hello UI</p></div>
+    <interactive-screen
+      :selected-ecosystem="selectedEcosystem"
+      class="interactive-screen"
+      @select-organism="selectOrganism"
+    />
+    <ecosystem-information
+      :selected-ecosystem="selectedEcosystem"
+      :selected-organism="selectedOrganism"
+      class="ecosystem-information"
+    />
   </div>
 </template>
 
 <script>
-import PaintCanvas from './components/PaintCanvas';
+import InteractiveScreen from './components/InteractiveScreen';
+import EcosystemInformation from './components/EcosystemInformation';
+import ecosystems from './ecosystems';
+import Organisms from './organisms';
 
 export default {
   name: 'App',
+
   components: {
-    PaintCanvas
+    InteractiveScreen,
+    EcosystemInformation
+  },
+
+  data() {
+    return {
+      selectedEcosystem: ecosystems['coral-reef'],
+      selectedOrganism: null
+    };
+  },
+
+  methods: {
+    selectOrganism(organismName) {
+      this.selectedOrganism =
+        Organisms[this.selectedEcosystem.id][organismName] ?? null;
+    }
   }
 };
 </script>
@@ -27,13 +54,14 @@ body {
   display: flex;
   height: 100%;
 
-  .paint-canvas {
-    flex: 4;
+  .interactive-screen {
+    flex: 10;
     height: 100%;
+    position: relative;
   }
 
-  .ui-controls {
-    flex: 1;
+  .ecosystem-information {
+    flex: 3;
   }
 }
 </style>

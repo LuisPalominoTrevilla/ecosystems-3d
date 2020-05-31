@@ -3,17 +3,12 @@ import Scenography from '../models/scenography';
 import Model from '../models/model';
 import BaseEcosystem from './base-ecosystem';
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
-import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader';
-import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
 
 class DesertEcosystem extends BaseEcosystem {
-  constructor() {
-    super();
+  constructor(loadingManager) {
+    super(loadingManager);
 
-    const fbxLoader = new FBXLoader();
-    const mtlLoader = new MTLLoader();
-    const loader = new OBJLoader();
-    console.log(mtlLoader, loader);
+    const fbxLoader = new FBXLoader(loadingManager);
 
     this.add(
       new Scenography({
@@ -30,8 +25,8 @@ class DesertEcosystem extends BaseEcosystem {
       gltf => {
         const fennec = new Model({
           mesh: gltf.scene,
-          name: 'fennex-fox',
-          spectatorPosition: new Vector3(0, 3, 0)
+          name: 'fennec-fox',
+          spectatorPosition: new Vector3(0, 5, 0)
         });
         fennec.scale.set(0.5, 0.5, 0.5);
         fennec.position.set(3, 0, 6);
@@ -40,7 +35,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(fennec);
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -58,7 +53,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(bush);
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -66,18 +61,18 @@ class DesertEcosystem extends BaseEcosystem {
     this.gltgLoader.load(
       'assets/desert/snake/scene.gltf',
       gltf => {
-        const python = new Model({
+        const viper = new Model({
           mesh: gltf.scene,
-          name: 'python',
+          name: 'viper',
           spectatorPosition: new Vector3(-3, 3, 3.8)
         });
-        python.scale.set(0.03, 0.03, 0.03);
-        python.rotation.y = Math.PI / 2;
-        python.position.set(-7, 0.65, 4);
-        this.add(python);
+        viper.scale.set(0.03, 0.03, 0.03);
+        viper.rotation.y = Math.PI / 2;
+        viper.position.set(-7, 0.65, 4);
+        this.add(viper);
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -95,7 +90,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(cactus);
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -103,18 +98,18 @@ class DesertEcosystem extends BaseEcosystem {
     fbxLoader.load(
       'assets/desert/plants/Cactus_4.fbx',
       fbx => {
-        const cactus = new Model({
+        const opuntia = new Model({
           mesh: fbx,
-          name: 'cactus',
+          name: 'opuntia',
           spectatorPosition: new Vector3(-3, 5, 3.8)
         });
-        cactus.scale.set(0.08, 0.04, 0.04);
-        cactus.rotation.y = Math.PI / 3;
-        cactus.position.set(-7, 0, 10);
-        this.add(cactus);
+        opuntia.scale.set(0.08, 0.04, 0.04);
+        opuntia.rotation.y = Math.PI / 3;
+        opuntia.position.set(-7, 0, 10);
+        this.add(opuntia);
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -135,7 +130,7 @@ class DesertEcosystem extends BaseEcosystem {
         });
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -155,7 +150,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(skeleton);
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -181,7 +176,7 @@ class DesertEcosystem extends BaseEcosystem {
         });
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -199,7 +194,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(rock);
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -217,7 +212,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(eagle);
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -236,7 +231,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(camel);
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -246,7 +241,7 @@ class DesertEcosystem extends BaseEcosystem {
       fbx => {
         const scorpion = new Model({
           mesh: fbx,
-          name: 'skeleton',
+          name: 'scorpion',
           spectatorPosition: new Vector3(0, 2, 2)
         });
         scorpion.scale.set(0.1, 0.1, 0.1);
@@ -255,7 +250,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(scorpion);
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -274,7 +269,7 @@ class DesertEcosystem extends BaseEcosystem {
         this.add(antelope);
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
@@ -305,23 +300,23 @@ class DesertEcosystem extends BaseEcosystem {
           [-8.0, 0, 1.5]
         ];
         verbenaPositions.forEach(verbenaPosition => {
+          const [x, y, z] = verbenaPosition;
           const verbena = new Model({
             mesh: fbx.clone(),
             name: 'verbena',
-            spectatorPosition: new Vector3(-2, 5, 3)
+            spectatorPosition: new Vector3(x + 4, 5, y + 4)
           });
-          const [x, y, z] = verbenaPosition;
           verbena.position.set(x, y, z);
           this.add(verbena);
         });
       },
       undefined,
-      function(error) {
+      function (error) {
         console.error(error);
       }
     );
   }
-  animate() {}
+  animate() { }
 }
 
 export default DesertEcosystem;
