@@ -4,7 +4,7 @@ import { Howl } from 'howler';
 
 class BaseEcosystem extends Scene {
   constructor(loadingManager, environmentAudio) {
-    if (!loadingManager)
+    if (!loadingManager || !environmentAudio)
       return console.error('Required loading manager missing');
     super();
 
@@ -18,7 +18,7 @@ class BaseEcosystem extends Scene {
     this.add(light);
     this.add(dirLight);
 
-    this.gltgLoader = new GLTFLoader(loadingManager);
+    this.gltfLoader = new GLTFLoader(loadingManager);
   }
 
   playAudio() {

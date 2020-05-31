@@ -8,10 +8,12 @@ import {
 } from 'three';
 
 class Scenography extends Group {
-  constructor({ wallImage, floorImage, ceilingImage }) {
+  constructor({ wallImage, floorImage, ceilingImage, loadingManager }) {
+    if (!loadingManager || !wallImage || !floorImage || !ceilingImage)
+      return console.error('Required parameters missing');
     super();
 
-    const textureLoader = new TextureLoader();
+    const textureLoader = new TextureLoader(loadingManager);
 
     const floor = new Mesh(
       new PlaneGeometry(26, 26),
