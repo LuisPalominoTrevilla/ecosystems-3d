@@ -5,6 +5,7 @@
       class="interactive-screen"
       @select-ecosystem="selectEcosystem"
       @select-organism="selectOrganism"
+      @deselect-organism="deselectOrganism"
     />
     <ecosystem-information
       :selected-ecosystem="selectedEcosystem"
@@ -44,6 +45,10 @@ export default {
     selectOrganism(organismName) {
       this.selectedOrganism =
         Organisms[this.selectedEcosystem.id][organismName] ?? null;
+    },
+
+    deselectOrganism() {
+      this.selectedOrganism = null;
     },
 
     exitEcosystem() {

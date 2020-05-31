@@ -1,6 +1,11 @@
 <template>
-  <div ref="container">
+  <div>
+    <div id="container" ref="container"></div>
     <loading-screen :loading="loading" />
+    <hud-controls
+      :disable-camera-reset="isTweening"
+      @reset-camera-position="resetCameraPosition"
+    />
   </div>
 </template>
 
@@ -17,6 +22,7 @@ import TWEEN from '@tweenjs/tween.js';
 import BaseEcosystem from '../ecosystems/base-ecosystem';
 import Model from '../models/model';
 import LoadingScreen from './LoadingScreen';
+import HudControls from './HudControls';
 import MenuScreen from '../menu/menu-screen';
 import InvisibleModel from '../models/invisible-model';
 
@@ -24,7 +30,8 @@ export default {
   name: 'InteractiveScreen',
 
   components: {
-    LoadingScreen
+    LoadingScreen,
+    HudControls
   },
 
   props: {
@@ -258,13 +265,24 @@ export default {
           this.tweenCam(object.position, object.spectatorPosition, 2000);
         }
       }
+    },
+
+    resetCameraPosition() {
+      const position = new Vector3(...this.initialCameraPosition);
+      const target = new Vector3(0, 0, 0);
+      this.$emit('deselect-organism');
+      this.tweenCam(target, position, 2000);
     }
   }
 };
 </script>
 
-<style>
-canvas {
+<style lang="scss" scoped>
+#container {
+  height: 100%;
+}
+
+::v-deep canvas {
   outline: none;
 }
 </style>
