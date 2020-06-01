@@ -1,0 +1,471 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 62642,
+      "max": [
+        13.040855407714844,
+        12.710811614990234,
+        18.183967590332031
+      ],
+      "min": [
+        -13.040567398071289,
+        -14.196317672729492,
+        0.34955769777297974
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 751704,
+      "componentType": 5126,
+      "count": 62642,
+      "max": [
+        0.99993312358856201,
+        0.99899208545684814,
+        0.99997234344482422
+      ],
+      "min": [
+        -0.99993312358856201,
+        -0.999900221824646,
+        -0.99999499320983887
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 62642,
+      "max": [
+        0.99953234195709229,
+        0.99994379281997681,
+        0.99980902671813965,
+        1
+      ],
+      "min": [
+        -1,
+        -0.99994438886642456,
+        -0.99993246793746948,
+        1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 62642,
+      "max": [
+        0.98759251832962036,
+        0.99589794874191284
+      ],
+      "min": [
+        0.0035996665246784687,
+        0.0033975415863096714
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 501136,
+      "componentType": 5126,
+      "count": 62642,
+      "max": [
+        0.98759251832962036,
+        0.99589794874191284
+      ],
+      "min": [
+        0.0035996665246784687,
+        0.0033975415863096714
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 1002272,
+      "componentType": 5126,
+      "count": 62642,
+      "max": [
+        0.98759251832962036,
+        0.99589794874191284
+      ],
+      "min": [
+        0.0035996665246784687,
+        0.0033975415863096714
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 297648,
+      "max": [
+        62641
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1503408,
+      "componentType": 5126,
+      "count": 836,
+      "max": [
+        0.57428646087646484,
+        -1.1102808713912964,
+        2.1607706546783447
+      ],
+      "min": [
+        -0.57428646087646484,
+        -1.4479222297668457,
+        1.8318604230880737
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1513440,
+      "componentType": 5126,
+      "count": 836,
+      "max": [
+        0.99816703796386719,
+        0.99872058629989624,
+        1
+      ],
+      "min": [
+        -0.99816703796386719,
+        -0.99872058629989624,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 1503408,
+      "componentType": 5126,
+      "count": 836,
+      "max": [
+        1.7627832889556885,
+        1.6110293865203857
+      ],
+      "min": [
+        -0.75639492273330688,
+        -0.72863423824310303
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 1190592,
+      "componentType": 5125,
+      "count": 4608,
+      "max": [
+        835
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "laurapenwell (https://sketchfab.com/laurapenwell)",
+      "license": "CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)",
+      "source": "https://sketchfab.com/3d-models/australian-tree-frog-bb554ccf931041629f710d4fed6edcce",
+      "title": "Australian Tree Frog"
+    },
+    "generator": "Sketchfab-8.15.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 1209024,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1510096,
+      "byteOffset": 1209024,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1523472,
+      "byteOffset": 2719120,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1002272,
+      "byteOffset": 4242592,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 5244864,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Low_POly_baseColor.png"
+    },
+    {
+      "uri": "textures/Low_POly_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Low_POly_normal.png"
+    },
+    {
+      "uri": "textures/eyes_base_baseColor.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "Low_POly",
+      "normalTexture": {
+        "index": 2,
+        "scale": 1,
+        "texCoord": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 1,
+        "metallicRoughnessTexture": {
+          "index": 1,
+          "texCoord": 0
+        },
+        "roughnessFactor": 1
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "eyes_base",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 3,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.88129415147604073
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Frog Main_Low POly_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Eyes base_eyes_base_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 8,
+            "POSITION": 7,
+            "TEXCOORD_0": 9
+          },
+          "indices": 10,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "Frog_Sketchfab.fbx"
+    },
+    {
+      "children": [
+        4,
+        6
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        12.52573299407959,
+        0,
+        0,
+        0,
+        0,
+        -2.0407009292761252e-06,
+        -12.525732994079425,
+        0,
+        0,
+        12.525732994079425,
+        -2.0407009292761252e-06,
+        0,
+        0,
+        -1.1920928955078125e-05,
+        1.1920928955078125e-05,
+        1
+      ],
+      "name": "Frog Main"
+    },
+    {
+      "mesh": 0,
+      "name": "Frog Main_Low POly_0"
+    },
+    {
+      "children": [
+        7
+      ],
+      "matrix": [
+        100,
+        0,
+        0,
+        0,
+        0,
+        -1.6292067939183141e-05,
+        -99.999999999998678,
+        0,
+        0,
+        99.999999999998678,
+        -1.6292067939183141e-05,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "Eyes base"
+    },
+    {
+      "mesh": 1,
+      "name": "Eyes base_eyes_base_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    }
+  ]
+}
+
