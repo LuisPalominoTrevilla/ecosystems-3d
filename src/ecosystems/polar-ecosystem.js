@@ -56,25 +56,6 @@ class DesertEcosystem extends BaseEcosystem {
     );
 
     this.gltgLoader.load(
-      'assets/polar/rabbit/rabbit.gltf',
-      gltf => {
-        const rabbit = new Model({
-          mesh: gltf.scene,
-          name: 'polar-bear',
-          spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
-        });
-        rabbit.scale.set(0.01, 0.01, 0.01);
-        rabbit.rotation.x = -Math.PI / 2;
-        rabbit.position.set(-4, 0, -4);
-        //this.add(rabbit);
-      },
-      undefined,
-      function (error) {
-        console.error(error);
-      }
-    );
-
-    this.gltgLoader.load(
       'assets/polar/penguin/poly/Mesh_Penguin.gltf',
       gltf => {
         const penguin = new Model({
@@ -102,7 +83,6 @@ class DesertEcosystem extends BaseEcosystem {
         });
         penguin.scale.set(4.5, 4.5, 4.5);
         penguin.position.set(8, 0, -5);
-        //penguin.rotation.y = -Math.PI;
         this.add(penguin);
       },
       undefined,
@@ -161,26 +141,6 @@ class DesertEcosystem extends BaseEcosystem {
         seal.position.set(0, 1.0, 5);
         seal.rotation.y = -Math.PI / 4;
         this.add(seal);
-      },
-      undefined,
-      function (error) {
-        console.error(error);
-      }
-    );
-
-    this.gltgLoader.load(
-      'assets/polar/puffin/scene.gltf',
-      gltf => {
-        const puffin = new Model({
-          mesh: gltf.scene,
-          name: 'puffin',
-          spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
-        });
-        puffin.scale.set(2, 2, 2);
-        puffin.position.set(20, 40, -20);
-        puffin.rotation.y = -Math.PI / 4;
-        // No se puede acomodar bien en la escena
-        //this.add(puffin);
       },
       undefined,
       function (error) {
