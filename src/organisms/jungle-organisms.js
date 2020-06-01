@@ -76,5 +76,11 @@ export default {
         scientificName: "Orchidaceae",
         description: "Orchids are easily distinguished from other plants, as they share some very evident derived characteristics or synapomorphies. Among these are: bilateral symmetry of the flower (zygomorphism), many resupinate flowers, a nearly always highly modified petal (labellum), fused stamens and carpels, and extremely small seeds. ",
 
+    },
+    'ceiba tree': {
+        name: "Ceiba",
+        image: "ceiba.jpg",
+        scientificName: "Ceiba Petandra",
+        description: "The tree grows to 240 ft (73 m), as confirmed by climbing and tape drop with reports of Kapoks up to 252 feet (77 meters). Trunks can often be up to 3 m (9.8 ft) in diameter above the extensive buttress roots. The very largest individuals, however, can be 19 feet (5.8 meters) thick or more above the buttresses.The buttress roots can be clearly seen in photographs extending 40 to 50 feet (12 to 15 meters) up the trunk of some specimens and extending out from the trunk as much as 65 feet (20 meters) and then continuing below ground to a total length of 165 feet (50 meters)"
     }
 }

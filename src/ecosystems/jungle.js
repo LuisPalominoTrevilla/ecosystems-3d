@@ -23,7 +23,7 @@ class Jungle extends BaseEcosystem {
 
         this.gltgLoader.load('assets/jungle/gorilla/scene.gltf',
             gltf => {
-                this.gorilla = new Model({ mesh: gltf.scene, name: "gorilla", spectatorPosition: new Vector3(-6, 6, 10) })
+                this.gorilla = new Model({ mesh: gltf.scene, name: "gorilla", spectatorPosition: new Vector3(-5.5, 7, 11) })
                 this.gorilla.position.set(-10, 1.15, 6.);
                 this.gorilla.scale.set(0.010, 0.010, 0.010);
                 this.gorilla.rotation.y = this.gorilla.rotation.y + 50 * Math.PI / 180
@@ -53,7 +53,7 @@ class Jungle extends BaseEcosystem {
 
         this.gltgLoader.load('assets/jungle/parrot/scene.gltf',
             gltf => {
-                this.parrot = new Model({ mesh: gltf.scene, name: "parrot", spectatorPosition: new Vector3(-5, 8, 0) });
+                this.parrot = new Model({ mesh: gltf.scene, name: "parrot", spectatorPosition: new Vector3(3.5, 7.5, 7.5) });
                 this.parrot.position.set(0, 8, 8);
                 this.parrot.scale.set(0.05, 0.05, 0.05);
                 this.add(this.parrot);
@@ -63,7 +63,7 @@ class Jungle extends BaseEcosystem {
 
         this.gltgLoader.load('assets/jungle/frog/scene.gltf',
             gltf => {
-                this.frog = new Model({ mesh: gltf.scene, name: "frog", spectatorPosition: new Vector3(2, 2, 5) });
+                this.frog = new Model({ mesh: gltf.scene, name: "frog", spectatorPosition: new Vector3(2.5, 1, 3.5) });
                 this.frog.position.set(2, 0, 2);
                 this.frog.scale.set(0.0025, 0.0025, 0.0025);
                 this.add(this.frog);
@@ -72,7 +72,7 @@ class Jungle extends BaseEcosystem {
 
         this.gltgLoader.load('assets/jungle/iguana/scene.gltf',
             gltf => {
-                this.iguana = new Model({ mesh: gltf.scene, name: "iguana", spectatorPosition: new Vector3(2, 4, 10) });
+                this.iguana = new Model({ mesh: gltf.scene, name: "iguana", spectatorPosition: new Vector3(-1, 2, 5) });
                 this.iguana.position.set(2, 0, 6);
                 this.iguana.scale.set(0.005, 0.005, 0.005);
                 this.add(this.iguana)
@@ -125,8 +125,8 @@ class Jungle extends BaseEcosystem {
                     const [x, y, z] = treePosition;
                     const Tree_clone = new Model({
                         mesh: SkeletonUtils.clone(gltf.scene),
-                        name: "tree",
-                        spectatorPosition: new Vector3(x, y + 3, z + 3),
+                        name: "ceiba tree",
+                        spectatorPosition: new Vector3(x + 1.5, y + 4.5, z + 6),
                     });
                     Tree_clone.position.set(x, y, z);
                     this.add(Tree_clone);
