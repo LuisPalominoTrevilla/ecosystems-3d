@@ -1,4 +1,3 @@
-//import * as Three from 'three';
 import Scenography from '../models/scenography';
 import Model from '../models/model';
 import BaseEcosystem from './base-ecosystem';
@@ -11,8 +10,8 @@ class JungleEcosystem extends BaseEcosystem {
 
     this.add(
       new Scenography({
-        floorImage: 'assets/textures/jungle-floor3.jpg',
-        wallImage: 'assets/backgrounds/jungla.png',
+        floorImage: 'assets/textures/jungle-floor.jpg',
+        wallImage: 'assets/backgrounds/jungle-background.jpg',
         ceilingImage: 'assets/textures/jungle-ceiling.jpg',
         loadingManager: loadingManager
       })
