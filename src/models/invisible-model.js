@@ -4,10 +4,10 @@ class InvisibleModel extends Mesh {
   constructor({ position, rotation, dimensions, name }) {
     if (!position) return console.error('Missing required parameters');
     const geometry = new BoxGeometry(...dimensions);
-    // TODO: Remove wireframe and color
+
     const material = new MeshBasicMaterial({
-      color: 0xff0000,
-      wireframe: true
+      transparent: true,
+      opacity: 0
     });
     super(geometry, material);
 

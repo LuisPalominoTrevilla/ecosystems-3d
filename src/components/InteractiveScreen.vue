@@ -140,7 +140,7 @@ export default {
       this.container.addEventListener(
         'mouseup',
         evt => {
-          if (!this.isMouseDrag || this.isInMenuScreen) this.onMouseClick(evt);
+          if (!this.isMouseDrag) this.onMouseClick(evt);
           this.isMouseDown = false;
           this.isMouseDrag = false;
         },

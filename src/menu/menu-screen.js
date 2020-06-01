@@ -41,7 +41,7 @@ class MenuScreen extends Scene {
   }
 
   animate() {
-    //this.rotation.y += 0.005;
+    this.rotation.y += 0.002;
   }
 }
 
