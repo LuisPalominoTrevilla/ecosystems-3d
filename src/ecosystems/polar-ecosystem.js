@@ -20,15 +20,10 @@ class DesertEcosystem extends BaseEcosystem {
     this.fbxLoader.load(
       'assets/polar/decorations/fireplace.fbx',
       fbx => {
-        const fireplace = new Model({
-          mesh: fbx,
-          name: 'fireplace',
-          spectatorPosition: new Vector3(0.311, 0.92, 1.15)
-        });
-        fireplace.scale.set(0.01, 0.01, 0.01);
-        fireplace.position.set(-4, 0, 0);
-        fireplace.rotation.y = Math.PI / 6;
-        this.add(fireplace);
+        fbx.scale.set(0.01, 0.01, 0.01);
+        fbx.position.set(-4, 0, 0);
+        fbx.rotation.y = Math.PI / 6;
+        this.add(fbx);
       },
       undefined,
       function (error) {
@@ -42,7 +37,7 @@ class DesertEcosystem extends BaseEcosystem {
         const igloo = new Model({
           mesh: gltf.scene,
           name: 'igloo',
-          spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
+          spectatorPosition: new Vector3(-3.8, 2.6, 3)
         });
         igloo.scale.set(2.5, 2.5, 2.5);
         igloo.position.set(-9, 0, -9);
@@ -61,7 +56,7 @@ class DesertEcosystem extends BaseEcosystem {
         const penguin = new Model({
           mesh: gltf.scene,
           name: 'king-penguin',
-          spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
+          spectatorPosition: new Vector3(3.42, 3.9, -3.4)
         });
         penguin.scale.set(0.02, 0.02, 0.02);
         penguin.position.set(5, 1.7, -6);
@@ -79,7 +74,7 @@ class DesertEcosystem extends BaseEcosystem {
         const penguin = new Model({
           mesh: gltf.scene,
           name: 'emperor-penguin',
-          spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
+          spectatorPosition: new Vector3(4.7, 5.42, -3)
         });
         penguin.scale.set(4.5, 4.5, 4.5);
         penguin.position.set(8, 0, -5);
@@ -97,7 +92,7 @@ class DesertEcosystem extends BaseEcosystem {
         const penguin = new Model({
           mesh: gltf.scene,
           name: 'emperor-penguin',
-          spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
+          spectatorPosition: new Vector3(4.7, 5.42, -3)
         });
         penguin.scale.set(0.008, 0.008, 0.008);
         penguin.position.set(9, 1.3, -4);
@@ -116,7 +111,7 @@ class DesertEcosystem extends BaseEcosystem {
         const wolf = new Model({
           mesh: gltf.scene,
           name: 'wolf',
-          spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
+          spectatorPosition: new Vector3(-5.85, 3.5, 7.36)
         });
         wolf.scale.set(0.5, 0.5, 0.5);
         wolf.position.set(-8, 0, 3);
@@ -135,7 +130,7 @@ class DesertEcosystem extends BaseEcosystem {
         const seal = new Model({
           mesh: gltf.scene,
           name: 'seal',
-          spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
+          spectatorPosition: new Vector3(1.57, 1.41, 8.2)
         });
         seal.scale.set(0.03, 0.03, 0.03);
         seal.position.set(0, 1.0, 5);
@@ -154,7 +149,7 @@ class DesertEcosystem extends BaseEcosystem {
         const elk = new Model({
           mesh: gltf.scene,
           name: 'elk',
-          spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
+          spectatorPosition: new Vector3(-1.05, 5.02, 6.65)
         });
         elk.scale.set(0.05, 0.05, 0.05);
         elk.position.set(6, 0, 9);
@@ -192,7 +187,7 @@ class DesertEcosystem extends BaseEcosystem {
         const polar_bear = new Model({
           mesh: gltf.scene,
           name: 'polar-bear',
-          spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
+          spectatorPosition: new Vector3(-5.35, 8.8, -12.50)
         });
         polar_bear.scale.set(1.1, 1.1, 1.1);
         polar_bear.position.set(-3, 0, -8);
