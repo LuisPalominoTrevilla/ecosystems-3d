@@ -19,7 +19,7 @@ class Jungle extends BaseEcosystem {
             )
         );
 
-        this.background = new Color(0xFFFFFF);
+        this.background = new Color(0x097f1f);
 
         this.gltgLoader.load('assets/jungle/gorilla/scene.gltf',
             gltf => {
