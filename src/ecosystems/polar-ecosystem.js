@@ -15,7 +15,7 @@ class DesertEcosystem extends BaseEcosystem {
       })
     );
 
-    this.background = new Color(0xffbf80);
+    this.background = new Color(0xc6e6fb);
 
     this.fbxLoader.load(
       'assets/polar/decorations/fireplace.fbx',
@@ -213,11 +213,16 @@ class DesertEcosystem extends BaseEcosystem {
           [2, 0, -9],
           [-10, 0, 0],
           [-8, 0, 6],
-          [10, 0, 0],
-        ]
+          [10, 0, 0]
+        ];
         fbx.scale.set(0.04, 0.04, 0.04);
+
         treePositions.forEach(treePosition => {
-          const tree = fbx.clone();
+          const tree = new Model({
+            mesh: fbx.clone(),
+            name: 'tree',
+            spectatorPosition: new Vector3(-0.8, 8.3, -2.56)
+          });
           const [x, y, z] = treePosition;
           tree.position.set(x, y, z);
           this.add(tree);

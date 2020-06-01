@@ -47,5 +47,19 @@ export default {
     scientificName: 'Leucogeranus leucogeranus',
     description:
       'The Siberian crane, also known as the Siberian white crane or the snow crane, is a bird of the family Gruidae, the cranes. They are distinctive among the cranes, adults are nearly all snowy white, except for their black primary feathers that are visible in flight and with two breeding populations in the Arctic tundra of western and eastern Russia. The eastern populations migrate during winter to China while the western population winters in Iran and formerly, in Bharatpur, India.'
+  },
+  igloo: {
+    name: 'Igloo',
+    image: 'igloo.jpg',
+    scientificName: 'Iglu',
+    description:
+      'An igloo, also known as a snow house or snow hut, is a type of shelter built of snow, typically built when the snow is suitable. Snow is used because the air pockets trapped in it make it an insulator. On the outside, temperatures may be as low as −45 °C, but on the inside, the temperature may range from −7 to 16 °C when warmed by body heat alone.'
+  },
+  tree: {
+    name: 'Larch tree',
+    image: 'larch.jpg',
+    scientificName: 'Larix lyallii ',
+    description:
+      'Larches are conifers in the genus Larix, of the family Pinaceae. Growing from 20 to 45 m tall, they are native to much of the cooler temperate northern hemisphere, on lowlands in the north and high on mountains further south. Larches are among the dominant plants in the boreal forests of Siberia and Canada. Although they are conifers, larches are deciduous trees that lose their needles in the autumn.'
   }
 };
