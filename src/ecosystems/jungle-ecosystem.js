@@ -116,9 +116,9 @@ class JungleEcosystem extends BaseEcosystem {
       const dragonfly = new Model({
         mesh: gltf.scene,
         name: 'dragonfly',
-        spectatorPosition: new Vector3(0, 7, -5)
+        spectatorPosition: new Vector3(0, 6, -5)
       });
-      dragonfly.position.set(0, 8, -7);
+      dragonfly.position.set(0, 7, -7);
 
       dragonfly.scale.set(0.05, 0.05, 0.05);
       this.add(dragonfly);
